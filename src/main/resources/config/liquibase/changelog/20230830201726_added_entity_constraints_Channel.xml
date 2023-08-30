@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Channel.
+    -->
+    <changeSet id="20230830201726-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="workspace_id"
+                                 baseTableName="channel"
+                                 constraintName="fk_channel__workspace_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="workspace"/>
+
+        <addForeignKeyConstraint baseColumnNames="channel_id"
+                                 baseTableName="rel_channel__user"
+                                 constraintName="fk_rel_channel__user__channel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="channel"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="rel_channel__user"
+                                 constraintName="fk_rel_channel__user__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>
