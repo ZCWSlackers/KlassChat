@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>KlassChat</title>
   </head>
   <body>
@@ -13,17 +14,26 @@
       <div class="boxes">
         <div class="sidebar">
           <section class="sidebar-user">
-            <p>User</p>
+            <p>User Info Will Go Here</p>
           </section>
           <section class="channels">
-            <h4 class="channels-header">
-              <i>Channels</i>
-            </h4>
-            <ul id="channelList"></ul>
+            <button type="button" class="collapsible"><i>Channels</i></button>
+            <div class="content">
+              <ul id="channelList"></ul>
+            </div>
+            <button type="button" class="collapsible"><i>Direct Messages</i></button>
+            <div>
+              class="content">
+              <ul id="directMessageList"></ul>
+            </div>
           </section>
         </div>
         <div class="box2">
-          <p>box2</p>
+          <div class="message-container">
+            <div class="channel-name">Channel</div>
+            <div class="messageBox"></div>
+            <div class="messageInput"></div>
+          </div>
         </div>
       </div>
     </div>
