@@ -21,6 +21,16 @@ public class WorkspaceDTO implements Serializable {
 
     private Set<UserDTO> users = new HashSet<>();
 
+    private Set<UserDTO> channels = new HashSet<>();
+
+    public Set<UserDTO> getChannels() {
+        return channels;
+    }
+
+    public void setChannels(Set<UserDTO> channels) {
+        this.channels = channels;
+    }
+
     public Long getId() {
         return id;
     }
