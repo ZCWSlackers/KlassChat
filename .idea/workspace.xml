@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff427bc-6f76-4543-b334-c92333d5756a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/channels.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/koley.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/workspaces.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/domain/Workspace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/domain/Workspace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/service/dto/WorkspaceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/service/dto/WorkspaceDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/modules/home/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/app/modules/home/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
