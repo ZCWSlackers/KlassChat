@@ -42,7 +42,7 @@ public class Workspace implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<User> users = new HashSet<>();
 
-    @OneToMany(mappedBy = "workspace")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "workspace")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "workspace", "users", "messages" }, allowSetters = true)
     private Set<Channel> channels = new HashSet<>();

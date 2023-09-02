@@ -12,16 +12,16 @@ export const Home = () => {
 
   return (
     <Row>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
-      </Col>
+      {/*       <Col md="3" className="pad"> */}
+      {/*         <span className="hipster rounded" /> */}
+      {/*       </Col> */}
       <Col md="9">
-        <h2>
-          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
-        </h2>
-        <p className="lead">
-          <Translate contentKey="home.subtitle">This is your homepage</Translate>
-        </p>
+        {/*         <h2> */}
+        {/*           <Translate contentKey="home.title">Welcome, Java Hipster!</Translate> */}
+        {/*         </h2> */}
+        {/*         <p className="lead"> */}
+        {/*           <Translate contentKey="home.subtitle">This is your homepage</Translate> */}
+        {/*         </p> */}
         {account?.login ? (
           <div>
             <Alert color="success">
