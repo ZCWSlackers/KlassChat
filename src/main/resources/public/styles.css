@@ -1,0 +1,35 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.boxes {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+.box1 {
+  width: 25%;
+  background-color: darkblue;
+  float: left;
+  border-radius: 10px;
+  box-sizing: border-box;
+  /*margin-right: 10px;*/
+}
+.box2 {
+  width: 75%;
+  background-color: #222222;
+  float: left;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
