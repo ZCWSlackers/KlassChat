@@ -9,8 +9,8 @@
   flex-direction: row;
   flex-grow: 1;
 }
-.box1 {
-  width: 25%;
+.sidebar {
+  width: 20%;
   background-color: darkblue;
   float: left;
   border-radius: 10px;
@@ -18,7 +18,7 @@
   /*margin-right: 10px;*/
 }
 .box2 {
-  width: 75%;
+  width: 80%;
   background-color: #222222;
   float: left;
   border-radius: 10px;
@@ -32,4 +32,12 @@
 body {
   margin: 0;
   padding: 0;
+}
+.channels-header {
+  font-family: 'Helvetica';
+  color: #32bbb5;
+}
+.channels,
+.sidebar-user {
+  color: white;
 }
