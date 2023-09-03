@@ -22,8 +22,7 @@
               <ul id="channelList"></ul>
             </div>
             <button type="button" class="collapsible"><i>Direct Messages</i></button>
-            <div>
-              class="content">
+            <div class="content">
               <ul id="directMessageList"></ul>
             </div>
           </section>
@@ -32,7 +31,13 @@
           <div class="message-container">
             <div class="channel-name">Channel</div>
             <div class="messageBox"></div>
-            <div class="messageInput"></div>
+            <div class="messageInput">
+              <textarea id="message" rows="4" cols="50" placeholder="Type your message"></textarea>
+              <button id="sendButton">Send</button>
+              <p id="responseMessage"></p>
+
+              <script src="sendingmessage.js"></script>
+            </div>
           </div>
         </div>
       </div>

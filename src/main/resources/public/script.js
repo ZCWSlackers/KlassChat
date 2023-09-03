@@ -1,7 +1,7 @@
-const API_URL = `http://localhost:8080`;
+const API_URL_ = `http://localhost:8080`;
 
 function loadChannelNames() {
-  fetch(`${API_URL}/api/channels`)
+  fetch(`${API_URL_}/api/channels`)
     .then(response => response.json())
     .then(data => {
       createChannelButtons(data);
