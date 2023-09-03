@@ -1,4 +1,4 @@
-const API_URL = `http://localhost:8080`;
+import { API_URL } from './constants';
 
 function fetchWorkspacesData() {
   fetch(`${API_URL}/api/workspaces`)
@@ -34,11 +34,11 @@ function parseWorkspaceId() {
   try {
     var url_string = window.location.href.toLowerCase();
     var url = new URL(url_string);
-    var workSpaceId = url.searchParams.get('workspaceid');
+    var workspaceid = url.searchParams.get('workspaceid');
     // var geo = url.searchParams.get("geo");
     // var size = url.searchParams.get("size");
-    // console.log(name+ " and "+geo+ " and "+size);
-    return workSpaceId;
+    // console.log(workspaceid);
+    return workspaceid;
   } catch (err) {
     console.log("Issues with Parsing URL Parameter's - " + err);
     return '0';
@@ -65,15 +65,27 @@ function showWorkspaces(data) {
     let li = document.createElement('li');
     let title = document.createElement('h3');
     let body = document.createElement('p');
+    let name = document.createElement('p');
+    let channels = document.createElement('p');
     let by = document.createElement('p');
-    title.innerHTML = `<a href="/workspaces.html?workspaceid=${post.id}">${post.title}</a>`;
+
+    title.innerHTML = `<a href="/workspaces.html?workspaceid=${post.id}">${post.name}</a>`;
+    name.innerHTML = `${post.name}`;
     body.innerHTML = `${post.description}`;
+
+    //Tried to do something that wasn't even needed.....
+    //Maybe for the future. Currently displaying an empty list with commas in between
+    //    const channelNames = post.channels.map(channel => channel.name).join(', ');
+    //    channels.innerHTML = `Channels: ${channelNames}`;
+
     //let postedTime = dateOf(post.time)
     //by.innerHTML = `${post.date} - ${post.reportedBy}`;
 
     li.appendChild(title);
+    li.appendChild(name);
     li.appendChild(body);
-    li.appendChild(by);
+    //    li.appendChild(channels);
+
     list.appendChild(li);
   });
 
@@ -88,15 +100,15 @@ function showChannels(post) {
   const ul = document.getElementById('post');
   const detail = document.createDocumentFragment();
 
-  console.log('Channels:', channel);
+  console.log('Workspace:', post);
   let li = document.createElement('div');
   let title = document.createElement('h2');
   let body = document.createElement('p');
   let by = document.createElement('p');
-  title.innerHTML = `${channel.name}`;
-  body.innerHTML = `${channel.description}`;
-  //let postedTime = dateOf(post.time)
-  //by.innerHTML = `${post.date} - ${post.reportedBy}`;
+
+  title.innerHTML = `${post.name}`;
+  body.innerHTML = `${post.description}`;
+  by.innerHTML = `${post.users}`;
 
   li.appendChild(title);
   li.appendChild(body);
