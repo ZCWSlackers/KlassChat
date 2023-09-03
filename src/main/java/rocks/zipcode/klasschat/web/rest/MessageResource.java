@@ -157,6 +157,18 @@ public class MessageResource {
     }
 
     /**
+     * GET /messages/channel/{channelId} : Get all messages for a specific channel by its ID.
+     *
+     * @param channelId the ID of the channel.
+     * @return the ResponseEntity with status 200 (OK) and the list of messages, or with status 404 (Not Found).
+     */
+    @GetMapping("/messages/channel/{channelId}")
+    public ResponseEntity<List<MessageDTO>> getMessagesByChannelId(@PathVariable Long channelId) {
+        List<MessageDTO> messages = messageService.findByChannelId(channelId);
+        return ResponseEntity.ok(messages);
+    }
+
+    /**
      * {@code DELETE  /messages/:id} : delete the "id" message.
      *
      * @param id the id of the messageDTO to delete.

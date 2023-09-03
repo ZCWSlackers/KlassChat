@@ -13,4 +13,6 @@ import rocks.zipcode.klasschat.domain.Message;
 public interface MessageRepository extends JpaRepository<Message, Long> {
     @Query("select message from Message message where message.user.login = ?#{principal.username}")
     List<Message> findByUserIsCurrentUser();
+
+    List<Message> findByChannelId(Long channelId);
 }

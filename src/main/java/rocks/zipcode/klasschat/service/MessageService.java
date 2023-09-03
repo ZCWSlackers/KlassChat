@@ -109,4 +109,10 @@ public class MessageService {
         log.debug("Request to delete Message : {}", id);
         messageRepository.deleteById(id);
     }
+
+    @Transactional(readOnly = true)
+    public List<MessageDTO> findByChannelId(Long channelId) {
+        log.debug("Request to get Messages by Channel ID: {}", channelId);
+        return messageRepository.findByChannelId(channelId).stream().map(messageMapper::toDto).collect(Collectors.toList());
+    }
 }
