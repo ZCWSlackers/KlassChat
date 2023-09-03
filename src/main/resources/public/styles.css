@@ -33,18 +33,37 @@
 .messageBox {
   flex: 9;
   padding: 10px;
+  overflow-y: auto; /* adding a scroll bar */
 }
 .messageInput {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #ccc;
   padding: 10px;
 }
 .messageBox,
 .messageInput {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
   background-color: #8f8ab9;
   margin: 5px;
   border-radius: 5px;
   color: white;
+}
+
+#message {
+  height: 100%;
+  resize: none; /* no resizing for you */
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 5px; /* Add some spacing at the bottom */
+  overflow-y: auto;
+}
+
+#sendButton {
+  align-self: flex-end; /*  button at the end */
+  align-self: flex-bottom; /* this doenst do anything */
 }
 
 .clearfix::after {
