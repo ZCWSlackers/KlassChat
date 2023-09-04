@@ -1,5 +1,7 @@
 import { API_URL } from './constants.js';
+import { fetchMessages } from './fetchmessages.js';
 
+let channelId;
 let channelData = [];
 
 function fetchChannelData() {
@@ -13,18 +15,6 @@ function fetchChannelData() {
       console.error('Error fetching channel data: ', error);
     });
 }
-
-//I don't think we need anymore.  Leaving it for now
-// function showChannelNames(data) {
-//   const channelList = document.getElementById('channelList');
-//   data.forEach(channel => {
-//     let li = document.createElement('li');
-//     let channelName = document.createElement('p');
-//     channelName.textContent = channel.name;
-//     li.appendChild(channelName);
-//     channelList.appendChild(li);
-//   });
-// }
 
 window.addEventListener('load', fetchChannelData);
 
@@ -49,7 +39,7 @@ function createChannelButtons(data) {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = channel.name;
-    button.addEventListener('click', () => handleChannelButtonClick(channel.name));
+    button.addEventListener('click', () => handleChannelButtonClick(channel.id));
 
     const li = document.createElement('li');
     li.appendChild(button);
@@ -57,11 +47,28 @@ function createChannelButtons(data) {
   });
 }
 
-function handleChannelButtonClick(channelName) {
-  // Select the HTML element with the class "channel-name" and store it in the variable channelNameElement
+function handleChannelButtonClick(selectedChannelId) {
+  channelId = selectedChannelId;
+  console.log(channelId);
+
   const channelNameElement = document.querySelector('.channel-name');
-  // Set the text content of the selected "channel-name" element to the value of the channelName parameter
-  channelNameElement.textContent = channelName;
+  const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
+  if (selectedChannel) {
+    channelNameElement.textContent = selectedChannel.name;
+  }
+  fetchMessages(selectedChannelId);
 }
 
-export { channelData };
+export { channelId };
+
+//I don't think we need anymore.  Moving to the bottom and leaving it for now
+// function showChannelNames(data) {
+//   const channelList = document.getElementById('channelList');
+//   data.forEach(channel => {
+//     let li = document.createElement('li');
+//     let channelName = document.createElement('p');
+//     channelName.textContent = channel.name;
+//     li.appendChild(channelName);
+//     channelList.appendChild(li);
+//   });
+// }
