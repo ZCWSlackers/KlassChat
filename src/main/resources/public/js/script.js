@@ -11,16 +11,17 @@ function loadChannelNames() {
     });
 }
 
-function showChannelNames(data) {
-  const channelList = document.getElementById('channelList');
-  data.forEach(channel => {
-    let li = document.createElement('li');
-    let channelName = document.createElement('p');
-    channelName.textContent = channel.name;
-    li.appendChild(channelName);
-    channelList.appendChild(li);
-  });
-}
+//I don't think we need this now.  Leaving it anyway
+// function showChannelNames(data) {
+//   const channelList = document.getElementById('channelList');
+//   data.forEach(channel => {
+//     let li = document.createElement('li');
+//     let channelName = document.createElement('p');
+//     channelName.textContent = channel.name;
+//     li.appendChild(channelName);
+//     channelList.appendChild(li);
+//   });
+// }
 
 window.addEventListener('load', loadChannelNames);
 
@@ -57,6 +58,8 @@ function createChannelButtons(data) {
 }
 
 function handleChannelButtonClick(channelName) {
+  // Select the HTML element with the class "channel-name" and store it in the variable channelNameElement
   const channelNameElement = document.querySelector('.channel-name');
+  // Set the text content of the selected "channel-name" element to the value of the channelName parameter
   channelNameElement.textContent = channelName;
 }
