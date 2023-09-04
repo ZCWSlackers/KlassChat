@@ -52,7 +52,7 @@
   color: white;
 }
 
-#message {
+.message {
   height: 100%;
   resize: none; /* no resizing for you */
   border: 1px solid #ccc;
@@ -63,7 +63,7 @@
 
 #sendButton {
   align-self: flex-end; /*  button at the end */
-  align-self: flex-bottom; /* this doenst do anything */
+  /*align-self: flex-bottom; !* this doenst do anything *!*/
 }
 
 .clearfix::after {
