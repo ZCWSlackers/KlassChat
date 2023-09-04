@@ -1,8 +1,9 @@
 .container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* */
+  height: 100vh; /* Set the height of the container to occupy 100% of the viewport height */
+  display: flex; /* Make the container a flex container to control its child elements */
+  flex-direction: column; /* Arrange the child elements in a column direction (top to bottom) */
+  justify-content: space-between; /* Distribute space evenly between child elements along the main axis (vertically in this case) */
 }
 .boxes {
   display: flex;
