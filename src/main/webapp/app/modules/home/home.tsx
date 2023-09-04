@@ -1,15 +1,12 @@
 import './home.scss';
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
-
 import { useAppSelector } from 'app/config/store';
-
 export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
-
+  const mainpageURL = `http://localhost:8080/mainpage.html?userid=${account.id}`;
   return (
     <Row>
       {/*       <Col md="3" className="pad"> */}
@@ -28,13 +25,18 @@ export const Home = () => {
               <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
                 You are logged in as user {account.login}.
               </Translate>
+              {/*               <button type="button" href = "./public/html/mainpage.html?userid={account.login}"> OpenChat </button> */}
+              {/*               <button onclick="window.location.href = 'mainpage.html?userid={account.login}';">Send To Main Page</button> */}
+              <a href={mainpageURL} role="button">
+                {' '}
+                Home Page{' '}
+              </a>
             </Alert>
           </div>
         ) : (
           <div>
             <Alert color="warning">
               <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
-
               <Link to="/login" className="alert-link">
                 <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
               </Link>
@@ -44,7 +46,6 @@ export const Home = () => {
                 <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
               </Translate>
             </Alert>
-
             <Alert color="warning">
               <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
               <Link to="/account/register" className="alert-link">
@@ -56,7 +57,6 @@ export const Home = () => {
         <p>
           <Translate contentKey="home.question">If you have any question on JHipster:</Translate>
         </p>
-
         <ul>
           <li>
             <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
@@ -84,7 +84,6 @@ export const Home = () => {
             </a>
           </li>
         </ul>
-
         <p>
           <Translate contentKey="home.like">If you like JHipster, do not forget to give us a star on</Translate>{' '}
           <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
@@ -96,5 +95,4 @@ export const Home = () => {
     </Row>
   );
 };
-
 export default Home;

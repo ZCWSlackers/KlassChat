@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const responseMessage = document.getElementById('responseMessage');
 
   sendButton.addEventListener('click', function () {
+    console.log('button got clicked');
+
     // Get the message from the textarea
     const message = messageTextarea.value;
 
@@ -43,9 +45,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       timestamp: new Date().toISOString(),
       content: message,
-      user: sendingUser, //variableName.id for User id
+      user: {
+        id: 1,
+        login: null,
+      }, //variableName.id for User id
       channel: currentChannel, //channelVariable.id for Channel id
     };
+
+    console.log(data);
 
     // Send an HTTP POST request
     fetch(`${API_URL}/api/messages`, {
@@ -56,10 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
       body: JSON.stringify(data),
     })
       .then(response => response.json())
-      .then(data => {
+      .then(resultingData => {
         // Handle the response from the server
-        responseMessage.innerText = 'SENT';
-        //            console.log(response.status);
+        responseMessage.innerText = JSON.stringify(data);
+        console.log(data);
       })
       .catch(error => {
         console.error('Error:', error);
