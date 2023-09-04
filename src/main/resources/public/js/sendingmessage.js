@@ -1,5 +1,4 @@
-const API_URL = `http://localhost:8080`;
-
+import { API_URL } from './constants.js';
 //message json
 //{
 //  "id" : 1,
@@ -17,43 +16,55 @@ const API_URL = `http://localhost:8080`;
 //    "users" : [ ]
 //  }
 //}
-
-const sendingUser = document.getElementById('user');
+function userId() {
+  try {
+    var url_string = window.location.href.toLowerCase();
+    var url = new URL(url_string);
+    var userid = url.searchParams.get('userid');
+    // var geo = url.searchParams.get("geo");
+    // var size = url.searchParams.get("size");
+    console.log(userid);
+    return userid;
+  } catch (err) {
+    console.log("Issues with Parsing URL Parameter's - " + err);
+    return '0';
+  }
+}
+const sendingUser = userId();
 const currentChannel = document.getElementById('channel');
-
+function fetchUser(useridnum) {
+  fetch(`${API_URL}/api/users/${useridnum}`).then(res => {
+    //console.log("res is ", Object.prototype.toString.call(res));
+    return res.json();
+  });
+}
 document.addEventListener('DOMContentLoaded', function () {
+  // const sendingUser = userId();
+  console.log('PLEASE SHOW UP');
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
   const responseMessage = document.getElementById('responseMessage');
-
   sendButton.addEventListener('click', function () {
-    console.log('button got clicked');
-
     // Get the message from the textarea
     const message = messageTextarea.value;
-
     // Check if the message is not empty
     if (message.trim() === '') {
       responseMessage.innerText = 'Please enter a message.';
       return;
     }
-
     // Create an object to send as JSON data
     // Need to grab user id of sender AND the channel user is in
     //let response = HTTP.Response;
-
     const data = {
-      timestamp: new Date().toISOString(),
       content: message,
+      timestamp: new Date().toISOString(),
       user: {
-        id: 1,
-        login: null,
-      }, //variableName.id for User id
-      channel: currentChannel, //channelVariable.id for Channel id
+        id: parseInt(sendingUser),
+        login: null, //variableName.id for User id
+      },
+      channel: null,
     };
-
-    console.log(data);
-
+    // responseMessage.innerText= JSON.stringify(data);
     // Send an HTTP POST request
     fetch(`${API_URL}/api/messages`, {
       method: 'POST',
@@ -63,16 +74,15 @@ document.addEventListener('DOMContentLoaded', function () {
       body: JSON.stringify(data),
     })
       .then(response => response.json())
-      .then(resultingData => {
+      .then(data => {
         // Handle the response from the server
-        responseMessage.innerText = JSON.stringify(data);
-        console.log(data);
+        responseMessage.innerText = 'SENT';
+        //            console.log(response.status);
       })
       .catch(error => {
         console.error('Error:', error);
         responseMessage.innerText = 'An error occurred while sending the message.';
       });
-
     // Clear the textarea
     messageTextarea.value = '';
   });

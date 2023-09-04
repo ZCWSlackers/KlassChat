@@ -6,7 +6,7 @@ import { Row, Col, Alert } from 'reactstrap';
 import { useAppSelector } from 'app/config/store';
 export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
-  const mainpageURL = `http://localhost:8080/mainpage.html?userid=${account.id}`;
+  const mainpageURL = `http://localhost:8080/html/mainpage.html?userid=${account.id}`;
   return (
     <Row>
       {/*       <Col md="3" className="pad"> */}
