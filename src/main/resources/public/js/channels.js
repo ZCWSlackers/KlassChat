@@ -1,9 +1,12 @@
 import { API_URL } from './constants.js';
 
-function loadChannelNames() {
+let channelData = [];
+
+function fetchChannelData() {
   fetch(`${API_URL}/api/channels`)
     .then(response => response.json())
     .then(data => {
+      channelData = data;
       createChannelButtons(data);
     })
     .catch(error => {
@@ -11,7 +14,7 @@ function loadChannelNames() {
     });
 }
 
-//I don't think we need this now.  Leaving it anyway
+//I don't think we need anymore.  Leaving it for now
 // function showChannelNames(data) {
 //   const channelList = document.getElementById('channelList');
 //   data.forEach(channel => {
@@ -23,12 +26,11 @@ function loadChannelNames() {
 //   });
 // }
 
-window.addEventListener('load', loadChannelNames);
+window.addEventListener('load', fetchChannelData);
 
-var coll = document.getElementsByClassName('collapsible');
-var i;
+let coll = document.getElementsByClassName('collapsible');
 
-for (i = 0; i < coll.length; i++) {
+for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener('click', function () {
     this.classList.toggle('active');
     var content = this.nextElementSibling;
@@ -47,9 +49,7 @@ function createChannelButtons(data) {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = channel.name;
-    button.addEventListener('click', function () {
-      handleChannelButtonClick(channel.name);
-    });
+    button.addEventListener('click', () => handleChannelButtonClick(channel.name));
 
     const li = document.createElement('li');
     li.appendChild(button);
@@ -63,3 +63,5 @@ function handleChannelButtonClick(channelName) {
   // Set the text content of the selected "channel-name" element to the value of the channelName parameter
   channelNameElement.textContent = channelName;
 }
+
+export { channelData };

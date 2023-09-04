@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff427bc-6f76-4543-b334-c92333d5756a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/sendingmessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/testpost.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/channels.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/channels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/koley.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/styles/koley.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/workspaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/workspaces.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/js/fetchmessages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/html/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/html/mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/html/testpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/html/testpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/channels.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +55,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging lizdev",
+    "git-widget-placeholder": "liz",
     "last_opened_file_path": "/Users/joe/Desktop/local projects/KlassChat",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
