@@ -1,4 +1,6 @@
 import { API_URL } from './constants.js';
+import { channelId } from './channels.js';
+import { fetchMessages } from './fetchmessages.js';
 
 //message json
 //{
@@ -18,8 +20,8 @@ import { API_URL } from './constants.js';
 //  }
 //}
 
-const sendingUser = document.getElementById('user');
-const currentChannel = document.getElementById('channel');
+//const sendingUser = document.getElementById('user');
+//const currentChannel = document.getElementById('channel');
 
 document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
@@ -43,8 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       timestamp: new Date().toISOString(),
       content: message,
-      user: sendingUser, //variableName.id for User id
-      channel: currentChannel, //channelVariable.id for Channel id
+      //user: sendingUser, //variableName.id for User id    Will need to be update like below
+      channel: {
+        //this has to be nested to apply the channel id correctly
+        id: channelId,
+      }, //channelVariable.id for Channel id
     };
 
     // Send an HTTP POST request
@@ -60,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Handle the response from the server
         responseMessage.innerText = 'SENT';
         //            console.log(response.status);
+        fetchMessages(channelId);
       })
       .catch(error => {
         console.error('Error:', error);
