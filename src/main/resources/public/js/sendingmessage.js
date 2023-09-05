@@ -33,21 +33,62 @@ function userId() {
     return '0';
   }
 }
+
 let sendingUser = userId();
 
-function fetchUser(sendingUser) {
-  fetch(`${API_URL}/api/users/${sendingUser}`).then(res => {
-    console.log('res is ', Object.prototype.toString.call(res));
-    return res.json();
-  });
+//function fetchUser(id) {
+////   fetch(`${API_URL}/api/users/${id}`)
+////    .then(response => {
+////      if (!response.ok) {
+////        throw new Error('Network response was not ok');
+////      }
+////      console.log(JSON.stringify(response.json()));
+////      return response.json(); // Convert the response to JSON and return it
+////    });
+//
+///////////
+//
+//fetch(`${API_URL}/api/users/${id}`, {
+//    method: `GET`,
+//    headers: {
+//        'Accept': 'application/json',
+//    },
+//})
+//   .then(response => response.json())
+//   .then(response => console.log(JSON.stringify(response)))
+//}
+
+function fetchUser(id) {
+  fetch(`${API_URL}/api/users/${id}`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Log the JSON data
+      console.log(JSON.stringify(data));
+      // Do something with the data, for example, update the UI
+      // You can access the JSON data as 'data' here
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle the error, e.g., display an error message to the user
+    });
 }
 
-let userFName = fetchUser(sendingUser);
-console.log(userFName);
+//console.log(userJson);
 document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
   const responseMessage = document.getElementById('responseMessage');
+  const userJson = fetchUser(sendingUser);
 
   sendButton.addEventListener('click', function () {
     // Get the message from the textarea
@@ -63,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Create an object to send as JSON data
     // Need to grab user id of sender AND the channel user is in
-    //let response = HTTP.Response;
+    // let response = HTTP.Response;
 
     const data = {
       timestamp: new Date().toISOString(),
@@ -72,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
       user: {
         id: parseInt(userId()),
         login: null,
-        firstName: userFName,
+        firstName: userJson.firstName,
         lastName: null, //variableName.id for User id
       },
       //user: sendingUser, //variableName.id for User id    Will need to be update like below
@@ -102,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
         responseMessage.innerText = 'An error occurred while sending the message.';
       });
 
-    // Clear the textarea
+    // Clear the text area
     messageTextarea.value = '';
   });
 });

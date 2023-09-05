@@ -27,11 +27,11 @@ function displayMessages(messages) {
       const messageTime = document.createElement('li');
       const messageSender = document.createElement('li');
 
-      messageSender.textContent = message.user.id + ' :';
+      messageSender.textContent = message.user.firstName + ' :';
       messageItem.textContent = message.content;
       messageTime.textContent = message.timestamp;
 
-      console.log(messageItem);
+      console.log(messageSender.textContent);
       messageList.appendChild(messageSender);
       messageList.appendChild(messageItem);
       messageList.appendChild(messageTime);
