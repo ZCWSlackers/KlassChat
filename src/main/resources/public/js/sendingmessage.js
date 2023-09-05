@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       timestamp: new Date().toISOString(),
       content: message,
-      timestamp: new Date().toISOString(),
       user: {
         id: parseInt(userId()),
         login: null, //variableName.id for User id
