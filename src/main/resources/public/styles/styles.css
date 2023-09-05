@@ -1,9 +1,10 @@
 .header {
-  height: 0vh;
+  height: 10vh;
+  background-color: #222222;
 }
 .container {
   /* Box for everything */
-  height: 50vh; /* Set the height of the container to occupy x% of the viewport height */
+  height: 90vh; /* Set the height of the container to occupy x% of the viewport height */
   display: flex; /* Make the container a flex container to control its child elements */
   flex-direction: column; /* Arrange the child elements in a column direction (top to bottom) */
   justify-content: space-between; /* Distribute space evenly between child elements along the main axis (vertically in this case) */
@@ -78,7 +79,7 @@ body {
 }
 .channels-header {
   font-family: 'Helvetica', serif;
-  color: #32bbb5;
+  color: #3dc7c2;
 }
 /*.channels,*/
 .channel-name,
@@ -106,4 +107,9 @@ body {
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
+}
+#logo {
+  height: auto;
+  max-height: 100%;
+  padding-left: 20px;
 }

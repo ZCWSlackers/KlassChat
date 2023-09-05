@@ -1,5 +1,4 @@
 import { API_URL } from './constants.js';
-import { channelId } from './channels.js';
 
 function fetchMessages(channelId) {
   fetch(`${API_URL}/api/messages/channel/${channelId}`)
