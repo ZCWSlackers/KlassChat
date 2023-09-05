@@ -37,11 +37,13 @@ let sendingUser = userId();
 
 function fetchUser(sendingUser) {
   fetch(`${API_URL}/api/users/${sendingUser}`).then(res => {
-    //console.log("res is ", Object.prototype.toString.call(res));
+    console.log('res is ', Object.prototype.toString.call(res));
     return res.json();
   });
 }
 
+let userFName = fetchUser(sendingUser);
+console.log(userFName);
 document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       user: {
         id: parseInt(userId()),
         login: null,
-        firstName: null,
+        firstName: userFName,
         lastName: null, //variableName.id for User id
       },
       //user: sendingUser, //variableName.id for User id    Will need to be update like below
