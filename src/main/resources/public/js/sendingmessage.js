@@ -33,7 +33,7 @@ function userId() {
   }
 }
 
-//const sendingUser = userId();
+const sendingUser = userId();
 const currentChannel = document.getElementById('channel');
 
 function fetchUser(useridnum) {
@@ -44,7 +44,6 @@ function fetchUser(useridnum) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const sendingUser = userId();
   console.log('PLEASE SHOW UP');
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         responseMessage.innerText = 'An error occurred while sending the message.';
       });
 
-    // Clear the textarea
-    //    messageTextarea.value = '';
+    //     Clear the textarea
+    messageTextarea.value = '';
   });
 });
