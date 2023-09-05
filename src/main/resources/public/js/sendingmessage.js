@@ -1,4 +1,6 @@
 import { API_URL } from './constants.js';
+import { channelId } from './channels.js';
+import { fetchMessages } from './fetchmessages.js';
 
 //message json
 //{
@@ -18,33 +20,10 @@ import { API_URL } from './constants.js';
 //  }
 //}
 
-function userId() {
-  try {
-    var url_string = window.location.href.toLowerCase();
-    var url = new URL(url_string);
-    var userid = url.searchParams.get('userid');
-    // var geo = url.searchParams.get("geo");
-    // var size = url.searchParams.get("size");
-    console.log(userid);
-    return userid;
-  } catch (err) {
-    console.log("Issues with Parsing URL Parameter's - " + err);
-    return '0';
-  }
-}
-
-const sendingUser = userId();
-const currentChannel = document.getElementById('channel');
-
-function fetchUser(useridnum) {
-  fetch(`${API_URL}/api/users/${useridnum}`).then(res => {
-    //console.log("res is ", Object.prototype.toString.call(res));
-    return res.json();
-  });
-}
+//const sendingUser = document.getElementById('user');
+//const currentChannel = document.getElementById('channel');
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('PLEASE SHOW UP');
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
   const responseMessage = document.getElementById('responseMessage');
@@ -64,15 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
     //let response = HTTP.Response;
 
     const data = {
-      content: message,
       timestamp: new Date().toISOString(),
-      user: {
-        id: 1,
-        login: null, //variableName.id for User id
-      },
-      channel: null,
+      content: message,
+      //user: sendingUser, //variableName.id for User id    Will need to be update like below
+      channel: {
+        //this has to be nested to apply the channel id correctly
+        id: channelId,
+      }, //channelVariable.id for Channel id
     };
-    responseMessage.innerText = JSON.stringify(data);
 
     // Send an HTTP POST request
     fetch(`${API_URL}/api/messages`, {
@@ -85,15 +63,16 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(response => response.json())
       .then(data => {
         // Handle the response from the server
-        responseMessage.innerText = 'Sent';
+        responseMessage.innerText = 'SENT';
         //            console.log(response.status);
+        fetchMessages(channelId); //temporary
       })
       .catch(error => {
         console.error('Error:', error);
         responseMessage.innerText = 'An error occurred while sending the message.';
       });
 
-    //     Clear the textarea
+    // Clear the textarea
     messageTextarea.value = '';
   });
 });
