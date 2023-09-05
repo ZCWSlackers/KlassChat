@@ -33,13 +33,15 @@ function userId() {
     return '0';
   }
 }
-//const sendingUser = userId();
-function fetchUser(useridnum) {
-  fetch(`${API_URL}/api/users/${useridnum}`).then(res => {
+let sendingUser = userId();
+
+function fetchUser(sendingUser) {
+  fetch(`${API_URL}/api/users/${sendingUser}`).then(res => {
     //console.log("res is ", Object.prototype.toString.call(res));
     return res.json();
   });
 }
+
 document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
@@ -48,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
   sendButton.addEventListener('click', function () {
     // Get the message from the textarea
     const message = messageTextarea.value;
+    //    let userFName = fetchFirstName();
+    //    console.log(fetchFirstName());
 
     // Check if the message is not empty
     if (message.trim() === '') {
@@ -65,7 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
       timestamp: new Date().toISOString(),
       user: {
         id: parseInt(userId()),
-        login: null, //variableName.id for User id
+        login: null,
+        firstName: null,
+        lastName: null, //variableName.id for User id
       },
       //user: sendingUser, //variableName.id for User id    Will need to be update like below
       channel: {

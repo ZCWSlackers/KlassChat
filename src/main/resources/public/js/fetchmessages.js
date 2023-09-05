@@ -19,12 +19,22 @@ function displayMessages(messages) {
     messageBox.textContent = 'Send a message to start the chat!';
   } else {
     const messageList = document.createElement('ul');
+    const messageTime = document.createElement('p');
+    const messageSender = document.createElement('p');
 
     messages.forEach(message => {
       const messageItem = document.createElement('li');
+      const messageTime = document.createElement('li');
+      const messageSender = document.createElement('li');
+
+      messageSender.textContent = message.user.id + ' :';
       messageItem.textContent = message.content;
+      messageTime.textContent = message.timestamp;
+
       console.log(messageItem);
+      messageList.appendChild(messageSender);
       messageList.appendChild(messageItem);
+      messageList.appendChild(messageTime);
     });
 
     messageBox.appendChild(messageList);
