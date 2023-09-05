@@ -9,6 +9,7 @@ import { useAppSelector } from 'app/config/store';
 
 export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
+  const mainpageURL = 'http://localhost:8080/mainpage.html?userid=' + account.id;
 
   return (
     <Row>
@@ -28,6 +29,12 @@ export const Home = () => {
               <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
                 You are logged in as user {account.login}.
               </Translate>
+              {/*               <button type="button" href = "./public/html/mainpage.html?userid={account.login}"> OpenChat </button> */}
+              {/*               <button onclick="window.location.href = 'mainpage.html?userid={account.login}';">Send To Main Page</button> */}
+              <a href={mainpageURL} role="button">
+                {' '}
+                Home Page{' '}
+              </a>
             </Alert>
           </div>
         ) : (
