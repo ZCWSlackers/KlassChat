@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Handle the response from the server
         responseMessage.innerText = 'SENT';
         //            console.log(response.status);
-        fetchMessages(channelId);
+        fetchMessages(channelId); //temporary
       })
       .catch(error => {
         console.error('Error:', error);
