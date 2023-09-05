@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(data => {
         // Handle the response from the server
         responseMessage.innerText = 'SENT';
-        //            console.log(response.status);
+        console.log('Printing');
         fetchMessages(channelId); //temporary
       })
       .catch(error => {
