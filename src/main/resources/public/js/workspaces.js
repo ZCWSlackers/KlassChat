@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
   console.log('Workspace Event Listener Loaded)');
   fetchWorkspaceData();
 });
-collapsibleButtons();
+//collapsibleButtons();
 
 function createWorkspaceButtons(data) {
   const workspaceButtons = document.getElementById('workspaceList');

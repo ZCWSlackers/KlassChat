@@ -1,6 +1,6 @@
 import { API_URL } from './constants.js';
 import { fetchMessages } from './fetchmessages.js';
-import { collapsibleButtons } from './collapsible.js';
+// import { collapsibleButtons } from './collapsible.js';
 
 let channelId;
 let channelData = [];
