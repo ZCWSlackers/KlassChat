@@ -1,5 +1,6 @@
 import { API_URL } from './constants.js';
 import { fetchMessages } from './fetchmessages.js';
+import { collapsibleButtons } from './collapsible.js';
 
 let channelId;
 let channelData = [];
@@ -18,19 +19,7 @@ function fetchChannelData() {
 
 window.addEventListener('load', fetchChannelData);
 
-let coll = document.getElementsByClassName('collapsible');
-
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener('click', function () {
-    this.classList.toggle('active');
-    let content = this.nextElementSibling;
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-    } else {
-      content.style.display = 'block';
-    }
-  });
-}
+collapsibleButtons();
 
 function createChannelButtons(data) {
   const channelButtons = document.getElementById('channelList');
