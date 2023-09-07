@@ -1,5 +1,4 @@
 import { API_URL } from './constants.js';
-import { fetchMessages } from './fetchmessages.js';
 import { fetchChannelData } from './channels.js';
 
 let workspaceId = 1;
@@ -11,6 +10,7 @@ function fetchWorkspaceData() {
     .then(data => {
       workspaceData = data;
       createWorkspaceButtons(data);
+      handleWorkspaceButtonClick(workspaceId);
     })
     .catch(error => {
       console.error('Error fetching channel data: ', error);

@@ -8,7 +8,6 @@ let channelData = [];
 
 export function fetchChannelData(workspaceId) {
   clearChannelList();
-  channelId = 1;
   fetch(`${API_URL}/api/channels/workspace/${workspaceId}`)
     .then(response => response.json())
     .then(data => {
