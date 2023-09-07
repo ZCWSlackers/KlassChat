@@ -1,16 +1,20 @@
 import { API_URL } from './constants.js';
 import { fetchMessages } from './fetchmessages.js';
-// import { collapsibleButtons } from './collapsible.js';
+import { workspaceId } from './workspaces.js';
+import { collapsibleButtons } from './collapsible.js';
 
-let channelId;
+let channelId = 1;
 let channelData = [];
 
-function fetchChannelData() {
-  fetch(`${API_URL}/api/channels`)
+export function fetchChannelData(workspaceId) {
+  clearChannelList();
+  channelId = 1;
+  fetch(`${API_URL}/api/channels/workspace/${workspaceId}`)
     .then(response => response.json())
     .then(data => {
       channelData = data;
       createChannelButtons(data);
+      handleChannelButtonClick(channelId);
     })
     .catch(error => {
       console.error('Error fetching channel data: ', error);
@@ -19,10 +23,10 @@ function fetchChannelData() {
 
 window.addEventListener('load', () => {
   console.log('Channel Even Listener Loaded)');
-  fetchChannelData();
+  fetchChannelData(workspaceId);
 });
 
-// collapsibleButtons();  Only need this once in the code.  Leaving it so I don't forget
+collapsibleButtons(); // Only need this once in the code.  Leaving it so I don't forget
 
 function createChannelButtons(data) {
   const channelButtons = document.getElementById('channelList');
@@ -49,9 +53,14 @@ function handleChannelButtonClick(selectedChannelId) {
 
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
-    channelButtonElement.textContent = selectedChannel.name;
+    channelButtonElement.textContent = 'Channel: ' + selectedChannel.name;
   }
   fetchMessages(selectedChannelId);
+}
+
+function clearChannelList() {
+  const channelList = document.getElementById('channelList');
+  channelList.innerHTML = '';
 }
 
 export { channelId };

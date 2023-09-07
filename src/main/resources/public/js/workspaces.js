@@ -1,8 +1,8 @@
 import { API_URL } from './constants.js';
-import { collapsibleButtons } from './collapsible.js';
 import { fetchMessages } from './fetchmessages.js';
+import { fetchChannelData } from './channels.js';
 
-let workspaceId;
+let workspaceId = 1;
 let workspaceData = [];
 
 function fetchWorkspaceData() {
@@ -20,7 +20,6 @@ window.addEventListener('load', () => {
   console.log('Workspace Event Listener Loaded)');
   fetchWorkspaceData();
 });
-//collapsibleButtons();
 
 function createWorkspaceButtons(data) {
   const workspaceButtons = document.getElementById('workspaceList');
@@ -46,7 +45,7 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   if (selectedWorkspace) {
     workspaceNameElement.textContent = selectedWorkspace.name;
   }
-  // fetchMessages(selectedWorkspaceId);
+  fetchChannelData(workspaceId);
 }
 
 export { workspaceId };

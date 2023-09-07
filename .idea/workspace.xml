@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4ff427bc-6f76-4543-b334-c92333d5756a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/repository/ChannelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/repository/ChannelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/repository/WorkspaceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/repository/WorkspaceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/service/ChannelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/service/ChannelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/web/rest/ChannelResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/web/rest/ChannelResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/channels.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/channels.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/collapsible.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/collapsible.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" afterDir="false" />
@@ -104,7 +100,7 @@
       <updated>1693235028002</updated>
       <workItem from="1693235029013" duration="366000" />
       <workItem from="1693572819869" duration="1593000" />
-      <workItem from="1694032336939" duration="14756000" />
+      <workItem from="1694032336939" duration="18058000" />
     </task>
     <servers />
   </component>
