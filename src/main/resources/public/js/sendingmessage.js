@@ -58,6 +58,8 @@ let sendingUser = userId();
 //   .then(response => console.log(JSON.stringify(response)))
 //}
 
+let userFirstName = null;
+
 function fetchUser(id) {
   fetch(`${API_URL}/api/users/${id}`, {
     method: 'GET',
@@ -74,8 +76,13 @@ function fetchUser(id) {
     .then(data => {
       // Log the JSON data
       console.log(JSON.stringify(data));
+      userFirstName = data.firstName;
+      console.log(userFirstName);
+
       // Do something with the data, for example, update the UI
       // You can access the JSON data as 'data' here
+      return data;
+      // Or return this as is
     })
     .catch(error => {
       console.error('Error:', error);
@@ -113,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
       user: {
         id: parseInt(userId()),
         login: null,
-        firstName: userJson.firstName,
+        firstName: userFirstName,
         lastName: null, //variableName.id for User id
       },
       //user: sendingUser, //variableName.id for User id    Will need to be update like below
@@ -147,3 +154,5 @@ document.addEventListener('DOMContentLoaded', function () {
     messageTextarea.value = '';
   });
 });
+
+export { userFirstName };
