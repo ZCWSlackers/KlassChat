@@ -45,6 +45,7 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   if (selectedWorkspace) {
     workspaceNameElement.textContent = selectedWorkspace.name;
   }
+
   fetchChannelData(workspaceId);
 }
 
