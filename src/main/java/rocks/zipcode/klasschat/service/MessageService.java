@@ -27,12 +27,12 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
 
-    //    private final UserRepository userRepository;
+    private final UserRepository userRepository;
     private final MessageMapper messageMapper;
 
     public MessageService(MessageRepository messageRepository, UserRepository userRepository, MessageMapper messageMapper) {
         this.messageRepository = messageRepository;
-        //        this.userRepository = userRepository;
+        this.userRepository = userRepository;
         this.messageMapper = messageMapper;
     }
 
@@ -93,20 +93,21 @@ public class MessageService {
         return messageRepository.findAll().stream().map(messageMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
     }
 
-    //    public List<MessageDTO> mergeUsers(List<MessageDTO> msgList) {
-    //        for (int i = 0; i < msgList.size(); i++) {
-    //           Long userId = msgList.get(i).getUser().getId();
-    //           User tempUser = userRepository.getById(userId);
-    //           UserDTO tempDTO = new UserDTO(tempUser);
-    //
-    //           msgList.get(i).setUser(tempDTO);
-    //        }
-    //
-    ////        for (MessageDTO msg : msgList) {
-    ////            log.warn(":"+msg.getUser().getId());
-    ////        }
-    //        return msgList;
-    //    }
+    public List<MessageDTO> mergeUsers(List<MessageDTO> msgList) {
+        for (int i = 0; i < msgList.size(); i++) {
+            Long userId = msgList.get(i).getUser().getId();
+            User tempUser = userRepository.getById(userId);
+            UserDTO tempDTO = new UserDTO(tempUser);
+
+            msgList.get(i).setUser(tempDTO);
+        }
+
+        //        for (MessageDTO msg : msgList) {
+        //            log.warn(":"+msg.getUser().getId());
+        //        }
+        return msgList;
+    }
+
     /**
      * Get one message by id.
      *

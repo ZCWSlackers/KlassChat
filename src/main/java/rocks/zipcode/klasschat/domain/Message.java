@@ -35,7 +35,7 @@ public class Message implements Serializable {
     @Column(name = "timestamp", nullable = false)
     private Instant timestamp;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne/*(fetch = FetchType.EAGER, cascade = CascadeType.ALL)*/
     private User user;
 
     //need a fetch type
