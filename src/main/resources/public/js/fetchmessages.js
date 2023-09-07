@@ -1,6 +1,59 @@
 import { API_URL } from './constants.js';
 import { channelId } from './channels.js';
-import { userFirstName } from './sendingmessage.js';
+//import { userFirstName } from './sendingmessage.js';
+
+//use the function here again and populate the user names
+
+let userFirstName = null;
+let userLastName = null;
+let userLogin = null;
+
+function userId() {
+  try {
+    var url_string = window.location.href.toLowerCase();
+    var url = new URL(url_string);
+    var userid = url.searchParams.get('userid');
+    // var geo = url.searchParams.get("geo");
+    // var size = url.searchParams.get("size");
+    console.log(userid);
+    return userid;
+  } catch (err) {
+    console.log("Issues with Parsing URL Parameter's - " + err);
+    return '0';
+  }
+}
+
+function fetchUser(id) {
+  fetch(`${API_URL}/api/users/${id}`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Log the JSON data
+      console.log(JSON.stringify(data));
+      userFirstName = data.firstName;
+      userLastName = data.lastName;
+      userLogin = data.login;
+      console.log(userFirstName);
+
+      return data;
+      // Or return this as is
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle the error, e.g., display an error message to the user
+    });
+}
+
+let sendingUser = userId();
 
 function fetchMessages(channelId) {
   fetch(`${API_URL}/api/messages/channel/${channelId}`)
@@ -29,7 +82,10 @@ function displayMessages(messages) {
       const messageTime = document.createElement('li');
       const messageSender = document.createElement('li');
       const emptySpace = document.createElement('li');
+      const messageUserId = message.user.id;
 
+      let temp = fetchUser(messageUserId);
+      console.log(userFirstName);
       messageSender.textContent = userFirstName + ' :';
       messageItem.textContent = message.content;
       messageTime.textContent = message.timestamp;

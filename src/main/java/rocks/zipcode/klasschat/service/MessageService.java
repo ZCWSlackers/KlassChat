@@ -9,8 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rocks.zipcode.klasschat.domain.Message;
+import rocks.zipcode.klasschat.domain.User;
 import rocks.zipcode.klasschat.repository.MessageRepository;
+import rocks.zipcode.klasschat.repository.UserRepository;
 import rocks.zipcode.klasschat.service.dto.MessageDTO;
+import rocks.zipcode.klasschat.service.dto.UserDTO;
 import rocks.zipcode.klasschat.service.mapper.MessageMapper;
 
 /**
@@ -24,10 +27,12 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
 
+    //    private final UserRepository userRepository;
     private final MessageMapper messageMapper;
 
-    public MessageService(MessageRepository messageRepository, MessageMapper messageMapper) {
+    public MessageService(MessageRepository messageRepository, UserRepository userRepository, MessageMapper messageMapper) {
         this.messageRepository = messageRepository;
+        //        this.userRepository = userRepository;
         this.messageMapper = messageMapper;
     }
 
@@ -88,6 +93,20 @@ public class MessageService {
         return messageRepository.findAll().stream().map(messageMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
     }
 
+    //    public List<MessageDTO> mergeUsers(List<MessageDTO> msgList) {
+    //        for (int i = 0; i < msgList.size(); i++) {
+    //           Long userId = msgList.get(i).getUser().getId();
+    //           User tempUser = userRepository.getById(userId);
+    //           UserDTO tempDTO = new UserDTO(tempUser);
+    //
+    //           msgList.get(i).setUser(tempDTO);
+    //        }
+    //
+    ////        for (MessageDTO msg : msgList) {
+    ////            log.warn(":"+msg.getUser().getId());
+    ////        }
+    //        return msgList;
+    //    }
     /**
      * Get one message by id.
      *

@@ -59,8 +59,12 @@ let sendingUser = userId();
 //}
 
 let userFirstName = null;
+let userLastName = null;
+let userLogin = null;
+let trackingVar = null;
 
 function fetchUser(id) {
+  trackingVar = 'Hello';
   fetch(`${API_URL}/api/users/${id}`, {
     method: 'GET',
     headers: {
@@ -77,10 +81,10 @@ function fetchUser(id) {
       // Log the JSON data
       console.log(JSON.stringify(data));
       userFirstName = data.firstName;
+      userLastName = data.lastName;
+      userLogin = data.login;
       console.log(userFirstName);
 
-      // Do something with the data, for example, update the UI
-      // You can access the JSON data as 'data' here
       return data;
       // Or return this as is
     })
@@ -116,12 +120,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       timestamp: new Date().toISOString(),
       content: message,
-      timestamp: new Date().toISOString(),
       user: {
         id: parseInt(userId()),
-        login: null,
+        login: userLogin,
         firstName: userFirstName,
-        lastName: null, //variableName.id for User id
+        lastName: userLastName, //variableName.id for User id
       },
       //user: sendingUser, //variableName.id for User id    Will need to be update like below
       channel: {
@@ -129,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
         id: channelId,
       }, //channelVariable.id for Channel id
     };
+    console.log(data);
+    console.log(trackingVar);
 
     // Send an HTTP POST request
     fetch(`${API_URL}/api/messages`, {
