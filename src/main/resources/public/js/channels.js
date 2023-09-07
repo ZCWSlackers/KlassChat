@@ -17,9 +17,12 @@ function fetchChannelData() {
     });
 }
 
-window.addEventListener('load', fetchChannelData);
+window.addEventListener('load', () => {
+  console.log('Channel Even Listener Loaded)');
+  fetchChannelData();
+});
 
-collapsibleButtons();
+// collapsibleButtons();  Only need this once in the code.  Leaving it so I don't forget
 
 function createChannelButtons(data) {
   const channelButtons = document.getElementById('channelList');
@@ -42,8 +45,11 @@ function handleChannelButtonClick(selectedChannelId) {
 
   const channelNameElement = document.querySelector('.channel-name');
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
+  const channelButtonElement = document.getElementById('channel-c-button');
+
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
+    channelButtonElement.textContent = selectedChannel.name;
   }
   fetchMessages(selectedChannelId);
 }
