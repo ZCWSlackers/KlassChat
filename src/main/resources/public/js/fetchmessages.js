@@ -83,7 +83,7 @@ async function displayMessages(messages) {
         messageSender.textContent = userData.firstName + ' :';
         messageItem.textContent = message.content;
         messageTime.textContent = message.timestamp + '\n';
-        emptySpace.textContent = ' ';
+        emptySpace.textContent = '  ';
 
         //        console.log(messageSender.textContent);
         messageList.appendChild(messageSender);
