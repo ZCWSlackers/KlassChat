@@ -8,9 +8,9 @@
 
 /* Style for the user picture section */
 .feed-user-pic {
-  /*display: flex;*/
+  display: flex;
   /*flex-direction: column;*/
-  /*align-items: flex-start;*/
+  align-items: center;
   margin-right: 10px;
   position: relative;
   width: 10%;
