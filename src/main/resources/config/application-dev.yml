@@ -32,12 +32,20 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/klasschat;DB_CLOSE_DELAY=-1;MODE=LEGACY
-    username: KlassChat
-    password:
+    url: jdbc:postgresql://localhost:5432/klasschat # Update the JDBC URL
+    username: jhuntenburg # Update the PostgreSQL username
+    password: jhuntenburg # Update the PostgreSQL password
     hikari:
       poolName: Hikari
       auto-commit: false
+  #  datasource:
+  #    type: com.zaxxer.hikari.HikariDataSource
+  #    url: jdbc:h2:file:./target/h2db/db/klasschat;DB_CLOSE_DELAY=-1;MODE=LEGACY
+  #    username: KlassChat
+  #    password:
+  #    hikari:
+  #      poolName: Hikari
+  #      auto-commit: false
   h2:
     console:
       # disable spring boot built-in h2-console since we start it manually with correct configuration
