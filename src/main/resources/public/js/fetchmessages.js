@@ -95,7 +95,7 @@ async function fetchMessages(channelId) {
           </section>
           <div>
             <p class="feed-text">${message.content}</p>
-            <h5> ${spacer} </h5
+            <h5> ${spacer} </h5>
           </div>
         </section>
       `;
