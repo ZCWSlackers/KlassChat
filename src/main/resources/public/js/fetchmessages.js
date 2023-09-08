@@ -75,9 +75,10 @@ async function fetchMessages(channelId) {
     messageBox.innerHTML = '';
 
     for (const message of messages) {
-      const userData = await fetchUser(message.user.id);
+      const userID = message.user.id;
+      const userData = await fetchUser(userID);
       const userName = userData.firstName;
-      const profilePic = message.profilePicture || 'assets/smile.png';
+      const profilePic = message.profilePicture || `assets/imageuser${userID}.png`;
       const timeStamp = message.timestamp || 'Not Available';
       const spacer = ' ';
 
