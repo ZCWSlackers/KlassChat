@@ -15,13 +15,20 @@ function fetchMessages(channelId) {
         const messageBlock = document.createElement('article');
         messageBlock.classList.add('feed');
 
+        // this is causing the problem I think
         messageBlock.innerHTML = `
-        <img class="profile-picture" src="${profilePic}" alt="${userName}'s Profile Picture" width="40">
-        <div class="message-content">
-            <span class="username">${userName}:</span>
-            <p>${message.content}</p>
-        </div>
-        <span class="timestamp">${timeStamp}</span>
+         <section class="feed-user-pic">
+          <img src="${profilePic}" alt="${userName}'s Profile Picture" width="40">
+          <span>${userName.charAt(0)}</span>
+        </section>
+        <section class="feed-message-content">
+          <section class="feed-user-info">
+            <h4>${userName} <span class="time-stamp">${timeStamp}</span></h4>
+          </section>
+          <div>
+            <p class="feed-text">${message.content}</p>
+          </div>
+        </section>
     `;
         messageBox.appendChild(messageBlock);
       });
