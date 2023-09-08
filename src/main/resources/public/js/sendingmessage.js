@@ -35,29 +35,6 @@ function userId() {
 }
 
 let sendingUser = userId();
-
-//function fetchUser(id) {
-////   fetch(`${API_URL}/api/users/${id}`)
-////    .then(response => {
-////      if (!response.ok) {
-////        throw new Error('Network response was not ok');
-////      }
-////      console.log(JSON.stringify(response.json()));
-////      return response.json(); // Convert the response to JSON and return it
-////    });
-//
-///////////
-//
-//fetch(`${API_URL}/api/users/${id}`, {
-//    method: `GET`,
-//    headers: {
-//        'Accept': 'application/json',
-//    },
-//})
-//   .then(response => response.json())
-//   .then(response => console.log(JSON.stringify(response)))
-//}
-
 let userFirstName = null;
 
 function fetchUser(id) {
@@ -77,7 +54,7 @@ function fetchUser(id) {
       // Log the JSON data
       console.log(JSON.stringify(data));
       userFirstName = data.firstName;
-      console.log(userFirstName);
+      //      console.log(userFirstName);
 
       // Do something with the data, for example, update the UI
       // You can access the JSON data as 'data' here
@@ -116,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       timestamp: new Date().toISOString(),
       content: message,
-      timestamp: new Date().toISOString(),
       user: {
         id: parseInt(userId()),
         login: null,
