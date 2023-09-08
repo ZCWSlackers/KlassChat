@@ -97,7 +97,13 @@ public class Channel implements Serializable {
     }
 
     public void setWorkspace(Workspace workspace) {
+        if (this.workspace != null) {
+            this.workspace.getChannels().remove(this);
+        }
         this.workspace = workspace;
+        if (this.workspace != null) {
+            workspace.getChannels().add(this);
+        }
     }
 
     public Channel workspace(Workspace workspace) {

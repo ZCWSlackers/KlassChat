@@ -59,42 +59,80 @@ function fetchMessages(channelId) {
       console.error('Error fetching messages: ', error);
     });
 }
-
-async function displayMessages(messages) {
-  const messageBox = document.getElementById('message-box');
-  messageBox.innerHTML = '';
-  if (messages.length === 0) {
-    messageBox.textContent = 'Send a message to start the chat!';
-  } else {
-    const messageList = document.createElement('ul');
-    messageList.classList.add('message-list'); // For the styles.css
+//
+//async function displayMessages(messages) {
+//  const messageBox = document.getElementById('message-box');
+//  messageBox.innerHTML = '';
+//  if (messages.length === 0) {
+//    messageBox.textContent = 'Send a message to start the chat!';
+//  } else {
+//    const messageList = document.createElement('ul');
+//    messageList.classList.add('message-list'); // For the styles.css
+//
+//    for (const message of messages) {
+//      const messageItem = document.createElement('li');
+//      const messageTime = document.createElement('li');
+//      const messageSender = document.createElement('li');
+//      const emptySpace = document.createElement('li');
+//
+//      //      console.log(message.user.id);
+//      try {
+//        const userData = await fetchUser(message.user.id);
+//        //        console.log(userData);
+//
+//        messageSender.textContent = userData.firstName + ' :';
+//        messageItem.textContent = message.content;
+//        messageTime.textContent = message.timestamp + '\n';
+//        emptySpace.textContent = '  ';
+//
+//        //        console.log(messageSender.textContent);
+//        messageList.appendChild(messageSender);
+//        messageList.appendChild(messageItem);
+//        messageList.appendChild(messageTime);
+//        messageList.appendChild(emptySpace);
+//      } catch (error) {
+//        console.error('Error fetching user data: ', error);
+//      }
+//    }
+//    messageBox.appendChild(messageList);
+//  }
+//}
+async function fetchMessages(channelId) {
+  try {
+    const response = await fetch(`${API_URL}/api/messages/channel/${channelId}`);
+    const messages = await response.json();
+    const messageBox = document.querySelector('.messageBox');
+    messageBox.innerHTML = '';
 
     for (const message of messages) {
-      const messageItem = document.createElement('li');
-      const messageTime = document.createElement('li');
-      const messageSender = document.createElement('li');
-      const emptySpace = document.createElement('li');
+      const userData = await fetchUser(message.user.id);
+      const userName = userData.firstname;
+      const profilePic = message.profilePicture || 'assets/smile.png';
+      const timeStamp = message.timestamp || 'Not Available';
+      console.log(userName);
 
-      //      console.log(message.user.id);
-      try {
-        const userData = await fetchUser(message.user.id);
-        //        console.log(userData);
+      const messageBlock = document.createElement('article');
+      messageBlock.classList.add('feed');
 
-        messageSender.textContent = userData.firstName + ' :';
-        messageItem.textContent = message.content;
-        messageTime.textContent = message.timestamp + '\n';
-        emptySpace.textContent = '  ';
+      messageBlock.innerHTML = `
+        <section class="feed-user-pic">
+          <img src="${profilePic}" alt="${userName}'s Profile Picture" width="40">
+          <span>${userName.charAt(0)}</span>
+        </section>
+        <section class="feed-message-content">
+          <section class="feed-user-info">
+            <h4>${userName} <span class="time-stamp">${timeStamp}</span></h4>
+          </section>
+          <div>
+            <p class="feed-text">${message.content}</p>
+          </div>
+        </section>
+      `;
 
-        //        console.log(messageSender.textContent);
-        messageList.appendChild(messageSender);
-        messageList.appendChild(messageItem);
-        messageList.appendChild(messageTime);
-        messageList.appendChild(emptySpace);
-      } catch (error) {
-        console.error('Error fetching user data: ', error);
-      }
+      messageBox.appendChild(messageBlock);
     }
-    messageBox.appendChild(messageList);
+  } catch (error) {
+    console.error('Error fetching messages: ', error);
   }
 }
 
