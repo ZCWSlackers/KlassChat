@@ -1,0 +1,49 @@
+/* Style for the message container */
+.message-feed {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Style for the user avatar section */
+.feed-user-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.feed-user-pic img {
+  border-radius: 50%;
+  max-height: 40px;
+}
+
+.feed-user-pic span {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 14px;
+}
+
+/* Style for the feed content section */
+.feed-message-content {
+  flex: 1;
+}
+
+/* Style for the user info section */
+.feed-user-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.time-stamp {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Style for the feed text */
+.feed-text {
+  font-size: 14px;
+  margin: 5px 0;
+}

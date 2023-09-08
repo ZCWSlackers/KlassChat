@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/messages.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Slackers KlassChat</title>
@@ -31,7 +32,22 @@
         </div>
         <div class="message-container">
           <div class="channel-name">Channel</div>
-          <div class="messageBox" id="message-box"></div>
+          <div class="messageBox">
+            <article class="message-feed">
+              <section class="feed-user-pic">
+                <img src="${message.profilePic}" alt="${message.userName}" width="40" />
+                <span>${message.userName.charAt(0)}</span>
+              </section>
+              <section class="feed-message-content">
+                <section class="feed-user-info">
+                  <h4>${message.userName} <span class="time-stamp">${message.timeStamp}</span></h4>
+                </section>
+                <div>
+                  <p class="feed-text">${message.content}</p>
+                </div>
+              </section>
+            </article>
+          </div>
 
           <div class="messageInput">
             <textarea id="message" rows="4" cols="50" placeholder="Type your message"></textarea>
