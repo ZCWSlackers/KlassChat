@@ -2,36 +2,6 @@ import { API_URL } from './constants.js';
 import { channelId } from './channels.js';
 //import { userFirstName } from './sendingmessage.js';
 
-//async function fetchUser(id) {
-//  fetch(`${API_URL}/api/users/${id}`, {
-//    method: 'GET',
-//    headers: {
-//      Accept: 'application/json',
-//    },
-//  })
-//    .then(response => {
-//      if (!response.ok) {
-//        throw new Error('Network response was not ok');
-//      }
-//      return response.json();
-//    })
-//    .then(data => {
-//      // Log the JSON data
-//      console.log(JSON.stringify(data));
-//      userFirstName = data.firstName;
-////      console.log(userFirstName);
-//
-//      // Do something with the data, for example, update the UI
-//      // You can access the JSON data as 'data' here
-//      return data;
-//      // Or return this as is
-//    })
-//    .catch(error => {
-//      console.error('Error:', error);
-//      // Handle the error, e.g., display an error message to the user
-//    });
-//}
-
 async function fetchUser(id) {
   try {
     let userResponse = await fetch(`${API_URL}/api/users/${id}`, {
@@ -106,10 +76,10 @@ async function fetchMessages(channelId) {
 
     for (const message of messages) {
       const userData = await fetchUser(message.user.id);
-      const userName = userData.firstname;
+      const userName = userData.firstName;
       const profilePic = message.profilePicture || 'assets/smile.png';
       const timeStamp = message.timestamp || 'Not Available';
-      console.log(userName);
+      const spacer = ' ';
 
       const messageBlock = document.createElement('article');
       messageBlock.classList.add('feed');
@@ -125,6 +95,7 @@ async function fetchMessages(channelId) {
           </section>
           <div>
             <p class="feed-text">${message.content}</p>
+            <h5> ${spacer} </h5
           </div>
         </section>
       `;
