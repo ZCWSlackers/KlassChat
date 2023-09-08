@@ -42,10 +42,10 @@ async function fetchUser(id) {
       },
     });
     let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
-    console.log(userJson);
+    //    console.log(userJson);
     return userJson;
   } catch (error) {
-    console.log('HEY SOMETHING WENT WRONG');
+    console.log('Error Fetching User JSON');
   }
 }
 
@@ -75,7 +75,7 @@ async function displayMessages(messages) {
       const messageSender = document.createElement('li');
       const emptySpace = document.createElement('li');
 
-      console.log(message.user.id);
+      //      console.log(message.user.id);
       try {
         const userData = await fetchUser(message.user.id);
         //        console.log(userData);
@@ -94,7 +94,6 @@ async function displayMessages(messages) {
         console.error('Error fetching user data: ', error);
       }
     }
-
     messageBox.appendChild(messageList);
   }
 }
