@@ -35,36 +35,9 @@ function userId() {
 }
 
 let sendingUser = userId();
-
-//function fetchUser(id) {
-////   fetch(`${API_URL}/api/users/${id}`)
-////    .then(response => {
-////      if (!response.ok) {
-////        throw new Error('Network response was not ok');
-////      }
-////      console.log(JSON.stringify(response.json()));
-////      return response.json(); // Convert the response to JSON and return it
-////    });
-//
-///////////
-//
-//fetch(`${API_URL}/api/users/${id}`, {
-//    method: `GET`,
-//    headers: {
-//        'Accept': 'application/json',
-//    },
-//})
-//   .then(response => response.json())
-//   .then(response => console.log(JSON.stringify(response)))
-//}
-
 let userFirstName = null;
-let userLastName = null;
-let userLogin = null;
-let trackingVar = null;
 
 function fetchUser(id) {
-  trackingVar = 'Hello';
   fetch(`${API_URL}/api/users/${id}`, {
     method: 'GET',
     headers: {
@@ -81,10 +54,10 @@ function fetchUser(id) {
       // Log the JSON data
       console.log(JSON.stringify(data));
       userFirstName = data.firstName;
-      userLastName = data.lastName;
-      userLogin = data.login;
-      console.log(userFirstName);
+      //      console.log(userFirstName);
 
+      // Do something with the data, for example, update the UI
+      // You can access the JSON data as 'data' here
       return data;
       // Or return this as is
     })
@@ -122,9 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
       content: message,
       user: {
         id: parseInt(userId()),
-        login: userLogin,
+        login: null,
         firstName: userFirstName,
-        lastName: userLastName, //variableName.id for User id
+        lastName: null, //variableName.id for User id
       },
       //user: sendingUser, //variableName.id for User id    Will need to be update like below
       channel: {
@@ -132,8 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
         id: channelId,
       }, //channelVariable.id for Channel id
     };
-    console.log(data);
-    console.log(trackingVar);
 
     // Send an HTTP POST request
     fetch(`${API_URL}/api/messages`, {

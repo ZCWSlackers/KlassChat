@@ -36,6 +36,16 @@
   padding: 10px;
   overflow-y: auto; /* adding a scroll bar */
 }
+
+.message-list {
+  list-style-type: none; /* Removing bullet points */
+  /*  margin-bottom: 10px; This needs to be in the inner li class */
+}
+
+/*.message-list li {
+  margin-bottom: 10px;    adds space to every li element in the /message-list
+}*/
+
 .messageInput {
   display: flex;
   flex-direction: column;
