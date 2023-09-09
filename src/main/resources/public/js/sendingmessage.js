@@ -19,6 +19,7 @@ import { fetchMessages } from './fetchmessages.js';
 //    "users" : [ ]
 //  }
 //}
+
 function userId() {
   try {
     var url_string = window.location.href.toLowerCase();
@@ -33,67 +34,58 @@ function userId() {
     return '0';
   }
 }
-//const sendingUser = userId();
-function fetchUser(useridnum) {
-  fetch(`${API_URL}/api/users/${useridnum}`).then(res => {
-    //console.log("res is ", Object.prototype.toString.call(res));
-    return res.json();
-  });
-}
+
+//console.log(userJson);
 document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
   const sendButton = document.getElementById('sendButton');
   const responseMessage = document.getElementById('responseMessage');
 
-  sendButton.addEventListener('click', function () {
-    // Get the message from the textarea
+  sendButton.addEventListener('click', async function () {
+    // Make the event listener async along with the fetchUser
     const message = messageTextarea.value;
 
-    // Check if the message is not empty
     if (message.trim() === '') {
       responseMessage.innerText = 'Please enter a message.';
       return;
     }
 
-    // Create an object to send as JSON data
-    // Need to grab user id of sender AND the channel user is in
-    //let response = HTTP.Response;
+    try {
+      // Anything other the TimeStamp and Content MIGHT be optional.
+      // We may be grabbing everything from the DTO???????
+      const data = {
+        timestamp: new Date().toISOString(),
+        content: message,
+        user: {
+          id: parseInt(userId()),
+          login: null,
+          firstName: 'John', // userJson.firstname
+          lastName: 'Doe', // may no longer be necessary
+        },
+        channel: {
+          id: channelId,
+          name: 'default',
+          description: 'default',
+        },
+      };
 
-    const data = {
-      timestamp: new Date().toISOString(),
-      content: message,
-      user: {
-        id: parseInt(userId()),
-        login: null, //variableName.id for User id
-      },
-      //user: sendingUser, //variableName.id for User id    Will need to be update like below
-      channel: {
-        //this has to be nested to apply the channel id correctly
-        id: channelId,
-      }, //channelVariable.id for Channel id
-    };
-
-    // Send an HTTP POST request
-    fetch(`${API_URL}/api/messages`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response from the server
-        responseMessage.innerText = 'SENT';
-        console.log('Printing');
-        fetchMessages(channelId); //temporary
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        responseMessage.innerText = 'An error occurred while sending the message.';
+      const response = await fetch(`${API_URL}/api/messages`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
 
-    // Clear the textarea
+      const responseData = await response.json();
+
+      responseMessage.innerText = 'SENT';
+      fetchMessages(channelId);
+    } catch (error) {
+      console.error('Error:', error);
+      responseMessage.innerText = 'An error occurred while sending the message.';
+    }
+
     messageTextarea.value = '';
   });
 });

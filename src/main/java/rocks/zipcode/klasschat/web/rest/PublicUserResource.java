@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.Collections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import rocks.zipcode.klasschat.domain.User;
+import rocks.zipcode.klasschat.repository.UserRepository;
 import rocks.zipcode.klasschat.service.UserService;
 import rocks.zipcode.klasschat.service.dto.UserDTO;
 import tech.jhipster.web.util.PaginationUtil;
@@ -23,6 +26,9 @@ public class PublicUserResource {
     private static final List<String> ALLOWED_ORDERED_PROPERTIES = Collections.unmodifiableList(
         Arrays.asList("id", "login", "firstName", "lastName", "email", "activated", "langKey")
     );
+
+    @Autowired
+    private UserRepository userRepository;
 
     private final Logger log = LoggerFactory.getLogger(PublicUserResource.class);
 
@@ -61,5 +67,16 @@ public class PublicUserResource {
     @GetMapping("/authorities")
     public List<String> getAuthorities() {
         return userService.getAuthorities();
+    }
+
+    @GetMapping("users/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        Optional<User> user = userRepository.findById(id);
+
+        if (user.isPresent()) {
+            return ResponseEntity.ok(user.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
