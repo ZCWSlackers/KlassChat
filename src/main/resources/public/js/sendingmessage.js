@@ -20,6 +20,21 @@ import { fetchMessages } from './fetchmessages.js';
 //  }
 //}
 
+function userId() {
+  try {
+    var url_string = window.location.href.toLowerCase();
+    var url = new URL(url_string);
+    var userid = url.searchParams.get('userid');
+    // var geo = url.searchParams.get("geo");
+    // var size = url.searchParams.get("size");
+    console.log(userid);
+    return userid;
+  } catch (err) {
+    console.log("Issues with Parsing URL Parameter's - " + err);
+    return '0';
+  }
+}
+
 //console.log(userJson);
 document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
