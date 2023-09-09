@@ -48,11 +48,9 @@ function handleChannelButtonClick(selectedChannelId) {
 
   const channelNameElement = document.querySelector('.channel-name');
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
-  const channelButtonElement = document.getElementById('channel-c-button');
 
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
-    channelButtonElement.textContent = 'Channel: ' + selectedChannel.name;
   }
   fetchMessages(selectedChannelId);
 }
