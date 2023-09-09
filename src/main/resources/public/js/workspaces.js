@@ -1,21 +1,65 @@
 import { API_URL } from './constants.js';
 import { fetchChannelData } from './channels.js';
 
+// Each workspace has a list of users.
+// If your id is not present in that list, you should not be able to see that workspace.
+
+function userId() {
+  try {
+    var url_string = window.location.href.toLowerCase();
+    var url = new URL(url_string);
+    var userid = url.searchParams.get('userid');
+    // var geo = url.searchParams.get("geo");
+    // var size = url.searchParams.get("size");
+    console.log(userid);
+    return userid;
+  } catch (err) {
+    console.log("Issues with Parsing URL Parameter's - " + err);
+    return '0';
+  }
+}
+
+async function fetchUser(id) {
+  try {
+    let userResponse = await fetch(`${API_URL}/api/users/${id}`, {
+      // Get the response of the fetch
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+    let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
+    //    console.log(userJson);
+    return userJson;
+  } catch (error) {
+    console.log('Error Fetching User JSON');
+  }
+}
+
 let workspaceId = 1;
 let workspaceData = [];
 
-function fetchWorkspaceData() {
-  fetch(`${API_URL}/api/workspaces`)
-    .then(response => response.json())
-    .then(data => {
-      workspaceData = data;
-      createWorkspaceButtons(data);
-      handleWorkspaceButtonClick(workspaceId);
-    })
-    .catch(error => {
-      console.error('Error fetching channel data: ', error);
-    });
+async function fetchWorkspaceData() {
+  try {
+    const currentUser = userId();
+    const userJson = await fetchUser(currentUser);
+
+    const dataResponse = await fetch(`${API_URL}/api/workspaces`);
+    const data = await dataResponse.json();
+
+    workspaceData = data.filter(workspace => workspace.users.some(user => user.id === userJson.id));
+
+    console.log('All workspaces: ' + JSON.stringify(data));
+    console.log('Filtered workspaces: ' + JSON.stringify(workspaceData));
+    console.log('current user id: ' + currentUser);
+
+    createWorkspaceButtons(workspaceData);
+    handleWorkspaceButtonClick(workspaceId);
+  } catch (error) {
+    console.error('Failed to load workspaces', error);
+  }
 }
+
 window.addEventListener('load', () => {
   console.log('Workspace Event Listener Loaded)');
   fetchWorkspaceData();

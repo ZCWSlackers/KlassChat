@@ -27,7 +27,7 @@ async function fetchMessages(channelId) {
       // Add default values for userName and userPic if they are missing or undefined
       const userID = message.user.id;
       const userName = message.user.firstName || 'Unknown User';
-      const userPic = message.profilePic || `assets/imageuser${userID}.png`;
+      const userPic = message.profilePic || `assets/imageuser${userID}.png` || 'assets/smile.png';
       const article = document.createElement('article');
       article.classList.add('message-feed');
 
