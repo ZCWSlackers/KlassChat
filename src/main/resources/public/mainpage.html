@@ -22,18 +22,13 @@
             <p>User Info Will Go Here</p>
             <div class="menu-list">
               <!-- Logo and navigation menu -->
-              <div class="geeks">
-                <a href="#" class="">Workspaces</a>
+              <div class="workspace-list">
+                <a href="#" id="workspace-link">Workspaces</a>
                 <div id="menus">
-                  <a href="#">Language</a>
-                  <a href="#">Practice</a>
-                  <a href="#">Interview</a>
-                  <a href="#">Puzzle</a>
+                  <ul id="workspaceList"></ul>
                 </div>
-                <!-- Bar icon for navigation -->
-                <a href="javascript:void(0);" class="icon" onclick="geeksforgeeks()">
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenus()">
                   <span class="material-symbols-outlined">menu</span>
-                  <!--                  <img src="./assets/menu.png" alt ="Menu Icon">-->
                 </a>
               </div>
             </div>
@@ -87,6 +82,6 @@
 
     <script type="module" src="js/channels.js"></script>
     <script type="module" src="js/workspaces.js"></script>
-    <script src="js/menus.js"></script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
