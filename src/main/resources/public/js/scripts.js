@@ -1,5 +1,5 @@
 // Function to toggle the bar
-function toggleMenus() {
+function toggleWorkspaceMenus() {
   let x = document.getElementById('menus');
   if (x.style.display === 'block') {
     x.style.display = 'none';
