@@ -47,6 +47,8 @@ async function fetchWorkspaceData() {
     const dataResponse = await fetch(`${API_URL}/api/workspaces`);
     const data = await dataResponse.json();
 
+    // Check each workspaces' user and see if ANY of the user has and id that matches userJson.id
+    // And if ANY of the user matches, add it to workspaceData.
     workspaceData = data.filter(workspace => workspace.users.some(user => user.id === userJson.id));
 
     console.log('All workspaces: ' + JSON.stringify(data));
