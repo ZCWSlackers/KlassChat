@@ -1,0 +1,39 @@
+{
+  "applications": ["KlassChat"],
+  "changelogDate": "20230830201725",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "workspace",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Workspace",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "workspace",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "channel",
+      "otherEntityRelationshipName": "workspace",
+      "relationshipName": "channel",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

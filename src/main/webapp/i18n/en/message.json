@@ -1,0 +1,27 @@
+{
+  "klassChatApp": {
+    "message": {
+      "home": {
+        "title": "Messages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Message",
+        "createOrEditLabel": "Create or edit a Message",
+        "notFound": "No Messages found"
+      },
+      "created": "A new Message is created with identifier {{ param }}",
+      "updated": "A Message is updated with identifier {{ param }}",
+      "deleted": "A Message is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Message"
+      },
+      "id": "ID",
+      "content": "Content",
+      "timestamp": "Timestamp",
+      "user": "User",
+      "channel": "Channel"
+    }
+  }
+}

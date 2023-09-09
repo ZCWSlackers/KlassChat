@@ -1,0 +1,60 @@
+application {
+  config {
+    baseName KlassChat
+    packageName rocks.zipcode.klasschat
+    applicationType monolith
+    prodDatabaseType postgresql
+    clientFramework react
+  }
+  entities *
+}
+
+entity User {
+  login String unique required
+  firstName String 
+  lastName String 
+}
+
+entity UserProfile {
+  password String required
+  email String unique required
+
+  profilePicture ImageBlob
+  isAdmin Boolean 
+}
+
+entity Workspace {
+  name String required
+  description String
+}
+
+entity Channel {
+  name String required
+  description String
+}
+
+entity Message {
+  content TextBlob required
+  timestamp Instant required
+}
+
+relationship OneToOne {
+  User{userProfile} to UserProfile{user}
+}
+
+relationship OneToMany {
+  User to Message
+  Channel to Message
+}
+
+relationship ManyToOne {
+  Channel to Workspace
+}
+
+relationship ManyToMany {
+  User{workspaces} to Workspace
+  User to Channel
+  User{directMessages} to User
+}
+
+dto * with mapstruct
