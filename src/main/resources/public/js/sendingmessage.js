@@ -19,40 +19,6 @@ import { fetchMessages } from './fetchmessages.js';
 //    "users" : [ ]
 //  }
 //}
-function userId() {
-  try {
-    var url_string = window.location.href.toLowerCase();
-    var url = new URL(url_string);
-    var userid = url.searchParams.get('userid');
-    // var geo = url.searchParams.get("geo");
-    // var size = url.searchParams.get("size");
-    console.log(userid);
-    return userid;
-  } catch (err) {
-    console.log("Issues with Parsing URL Parameter's - " + err);
-    return '0';
-  }
-}
-
-let sendingUser = userId();
-let userFirstName = null;
-
-async function fetchUser(id) {
-  try {
-    let userResponse = await fetch(`${API_URL}/api/users/${id}`, {
-      // Get the response of the fetch
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-      },
-    });
-    let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
-    //    console.log(userJson);
-    return userJson;
-  } catch (error) {
-    console.log('Error Fetching User JSON');
-  }
-}
 
 //console.log(userJson);
 document.addEventListener('DOMContentLoaded', function () {
@@ -70,12 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     try {
-      // Use await to fetch userJson
-      // Async functions need to be in a try catch when called with the await keyword
-      const userJson = await fetchUser(sendingUser);
-      console.log(userJson);
-      console.log(userJson.firstName);
-
       // Anything other the TimeStamp and Content MIGHT be optional.
       // We may be grabbing everything from the DTO???????
       const data = {
@@ -84,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
         user: {
           id: parseInt(userId()),
           login: null,
-          firstName: userJson.firstName, // userJson.firstname
-          lastName: userJson.lastName,
+          firstName: 'John', // userJson.firstname
+          lastName: 'Doe', // may no longer be necessary
         },
         channel: {
           id: channelId,
@@ -114,5 +74,3 @@ document.addEventListener('DOMContentLoaded', function () {
     messageTextarea.value = '';
   });
 });
-
-export { userFirstName };

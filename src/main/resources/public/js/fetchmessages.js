@@ -2,23 +2,6 @@ import { API_URL } from './constants.js';
 import { channelId } from './channels.js';
 //import { userFirstName } from './sendingmessage.js';
 
-async function fetchUser(id) {
-  try {
-    let userResponse = await fetch(`${API_URL}/api/users/${id}`, {
-      // Get the response of the fetch
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-      },
-    });
-    let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
-    //    console.log(userJson);
-    return userJson;
-  } catch (error) {
-    console.log('Error Fetching User JSON');
-  }
-}
-
 //function fetchMessages(channelId) {
 //  fetch(`${API_URL}/api/messages/channel/${channelId}`)
 //    .then(response => response.json())
@@ -43,8 +26,7 @@ async function fetchMessages(channelId) {
     for (const message of messages) {
       // Add default values for userName and userPic if they are missing or undefined
       const userID = message.user.id;
-      const userData = await fetchUser(userID);
-      const userName = userData.firstName || 'Unknown User';
+      const userName = message.user.firstName || 'Unknown User';
       const userPic = message.profilePic || `assets/imageuser${userID}.png`;
       const article = document.createElement('article');
       article.classList.add('message-feed');
