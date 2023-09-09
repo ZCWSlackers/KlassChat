@@ -20,10 +20,14 @@ public interface MessageMapper extends EntityMapper<MessageDTO, Message> {
     @Named("userId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "firstName", source = "firstName") // Adding this to grab the firstName variable from the UserDTO
+    @Mapping(target = "lastName", source = "lastName") // Adding this for lastName
     UserDTO toDtoUserId(User user);
 
     @Named("channelId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "description", source = "description")
     ChannelDTO toDtoChannelId(Channel channel);
 }

@@ -1,36 +1,31 @@
 import { API_URL } from './constants.js';
 import { fetchMessages } from './fetchmessages.js';
+import { workspaceId } from './workspaces.js';
+import { collapsibleButtons } from './collapsible.js';
 
-let channelId;
+let channelId = 1;
 let channelData = [];
 
-function fetchChannelData() {
-  fetch(`${API_URL}/api/channels`)
+export function fetchChannelData(workspaceId) {
+  clearChannelList();
+  fetch(`${API_URL}/api/channels/workspace/${workspaceId}`)
     .then(response => response.json())
     .then(data => {
       channelData = data;
       createChannelButtons(data);
+      handleChannelButtonClick(channelId);
     })
     .catch(error => {
       console.error('Error fetching channel data: ', error);
     });
 }
 
-window.addEventListener('load', fetchChannelData);
+window.addEventListener('load', () => {
+  console.log('Channel Even Listener Loaded)');
+  fetchChannelData(workspaceId);
+});
 
-let coll = document.getElementsByClassName('collapsible');
-
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener('click', function () {
-    this.classList.toggle('active');
-    var content = this.nextElementSibling;
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-    } else {
-      content.style.display = 'block';
-    }
-  });
-}
+collapsibleButtons(); // Only need this once in the code.  Leaving it so I don't forget
 
 function createChannelButtons(data) {
   const channelButtons = document.getElementById('channelList');
@@ -53,10 +48,18 @@ function handleChannelButtonClick(selectedChannelId) {
 
   const channelNameElement = document.querySelector('.channel-name');
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
+  const channelButtonElement = document.getElementById('channel-c-button');
+
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
+    channelButtonElement.textContent = 'Channel: ' + selectedChannel.name;
   }
   fetchMessages(selectedChannelId);
+}
+
+function clearChannelList() {
+  const channelList = document.getElementById('channelList');
+  channelList.innerHTML = '';
 }
 
 export { channelId };
