@@ -29,6 +29,9 @@ async function fetchMessages(channelId) {
       const userName = message.user.firstName || 'Unknown User';
       const userPic = message.profilePic || `assets/imageuser${userID}.png` || 'assets/smile.png';
       const article = document.createElement('article');
+      const timestamp = new Date(message.timestamp);
+      const formattedTimestamp = `${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`;
+
       article.classList.add('message-feed');
 
       // Create the feed-user-pic section
@@ -54,7 +57,7 @@ async function fetchMessages(channelId) {
       userNameHeader.textContent = userName;
       const timeStampSpan = document.createElement('span');
       timeStampSpan.classList.add('time-stamp');
-      timeStampSpan.textContent = message.timestamp;
+      timeStampSpan.textContent = formattedTimestamp;
       userNameHeader.appendChild(timeStampSpan);
       userInfoSection.appendChild(userNameHeader);
 

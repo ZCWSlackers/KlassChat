@@ -48,13 +48,18 @@ function handleChannelButtonClick(selectedChannelId) {
 
   const channelNameElement = document.querySelector('.channel-name');
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
-  const channelButtonElement = document.getElementById('channel-c-button');
 
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
-    channelButtonElement.textContent = 'Channel: ' + selectedChannel.name;
   }
-  fetchMessages(selectedChannelId);
+  fetchMessages(selectedChannelId)
+    .then(messages => {
+      // Handle messages here
+      console.log('Received messages:', messages);
+    })
+    .catch(error => {
+      console.error('Error fetching messages:', error);
+    });
 }
 
 function clearChannelList() {
