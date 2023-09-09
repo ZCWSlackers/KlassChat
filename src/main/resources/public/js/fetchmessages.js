@@ -19,16 +19,16 @@ async function fetchUser(id) {
   }
 }
 
-function fetchMessages(channelId) {
-  fetch(`${API_URL}/api/messages/channel/${channelId}`)
-    .then(response => response.json())
-    .then(messages => {
-      displayMessages(messages);
-    })
-    .catch(error => {
-      console.error('Error fetching messages: ', error);
-    });
-}
+//function fetchMessages(channelId) {
+//  fetch(`${API_URL}/api/messages/channel/${channelId}`)
+//    .then(response => response.json())
+//    .then(messages => {
+//      displayMessages(messages);
+//    })
+//    .catch(error => {
+//      console.error('Error fetching messages: ', error);
+//    });
+//}
 
 async function fetchMessages(channelId) {
   try {
