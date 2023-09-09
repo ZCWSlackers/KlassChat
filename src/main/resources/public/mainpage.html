@@ -3,6 +3,10 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="styles/messages.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Slackers KlassChat</title>
@@ -16,21 +20,39 @@
         <div class="sidebar">
           <section class="sidebar-user">
             <p>User Info Will Go Here</p>
-            <div class="collapsible-container">
-              <button type="button" class="collapsible" id="workspace-c-button"><i>Workspaces</i></button>
-              <button type="button" class="add-button" id="workspace-add-button">+</button>
+            <div class="menu-list">
+              <!-- Logo and navigation menu -->
+              <div class="geeks">
+                <a href="#" class="">Workspaces</a>
+                <div id="menus">
+                  <a href="#">Language</a>
+                  <a href="#">Practice</a>
+                  <a href="#">Interview</a>
+                  <a href="#">Puzzle</a>
+                </div>
+                <!-- Bar icon for navigation -->
+                <a href="javascript:void(0);" class="icon" onclick="geeksforgeeks()">
+                  <span class="material-symbols-outlined">menu</span>
+                  <!--                  <img src="./assets/menu.png" alt ="Menu Icon">-->
+                </a>
+              </div>
             </div>
-            <div class="content">
-              <ul id="workspaceList"></ul>
-            </div>
-            <button type="button" class="collapsible" id="channel-c-button"><i>Channels</i></button>
-            <div class="content">
-              <ul id="channelList"></ul>
-            </div>
-            <button type="button" class="collapsible"><i>Direct Messages</i></button>
-            <div class="content">
-              <ul id="directMessageList"></ul>
-            </div>
+
+            <!--            <div class="collapsible-container">-->
+            <!--              <button type="button" class="collapsible" id="workspace-c-button"><i>Workspaces</i></button>-->
+            <!--              <button type="button" class="add-button" id="workspace-add-button">+</button>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--              <ul id="workspaceList"></ul>-->
+            <!--            </div>-->
+            <!--            <button type="button" class="collapsible" id="channel-c-button"><i>Channels</i></button>-->
+            <!--            <div class="content">-->
+            <!--              <ul id="channelList"></ul>-->
+            <!--            </div>-->
+            <!--            <button type="button" class="collapsible"><i>Direct Messages</i></button>-->
+            <!--            <div class="content">-->
+            <!--              <ul id="directMessageList"></ul>-->
+            <!--            </div>-->
           </section>
         </div>
         <div class="message-container">
@@ -65,5 +87,6 @@
 
     <script type="module" src="js/channels.js"></script>
     <script type="module" src="js/workspaces.js"></script>
+    <script src="js/menus.js"></script>
   </body>
 </html>

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff427bc-6f76-4543-b334-c92333d5756a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/liz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/js/menus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +21,8 @@
       <list>
         <option value="Kotlin Class" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -99,6 +102,7 @@
       <workItem from="1693235029013" duration="366000" />
       <workItem from="1693572819869" duration="1593000" />
       <workItem from="1694032336939" duration="18058000" />
+      <workItem from="1694277940230" duration="5338000" />
     </task>
     <servers />
   </component>
