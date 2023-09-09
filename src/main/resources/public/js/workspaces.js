@@ -43,7 +43,7 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   const workspaceNameElement = document.getElementById('workspace-c-button');
   const selectedWorkspace = workspaceData.find(workspace => workspace.id === selectedWorkspaceId);
   if (selectedWorkspace) {
-    workspaceNameElement.textContent = selectedWorkspace.name;
+    workspaceNameElement.textContent = 'Workspace: ' + selectedWorkspace.name;
   }
 
   fetchChannelData(workspaceId);

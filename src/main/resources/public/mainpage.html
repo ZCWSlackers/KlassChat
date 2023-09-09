@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="styles/messages.css" />
@@ -16,7 +16,10 @@
         <div class="sidebar">
           <section class="sidebar-user">
             <p>User Info Will Go Here</p>
-            <button type="button" class="collapsible" id="workspace-c-button"><i>Workspaces</i></button>
+            <div class="collapsible-container">
+              <button type="button" class="collapsible" id="workspace-c-button"><i>Workspaces</i></button>
+              <button type="button" class="add-button" id="workspace-add-button">+</button>
+            </div>
             <div class="content">
               <ul id="workspaceList"></ul>
             </div>
