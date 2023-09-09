@@ -44,7 +44,7 @@ let workspaceData = [];
 //     .then(response => response.json())
 //     .then(data => {
 //       workspaceData = data;
-//       createWorkspaceButtons(data);
+//       createWorkspaceList(data);
 //       handleWorkspaceButtonClick(workspaceId);
 //     })
 //     .catch(error => {
@@ -77,7 +77,7 @@ async function fetchWorkspaceData() {
 function createWorkspaceButtons(data) {
   const workspaceButtons = document.getElementById('workspaceList');
 
-  data.forEach(workspace => {
+  data.forEach((workspace, index) => {
     const listItem = document.createElement('li');
     const button = document.createElement('button');
     button.type = 'button';
@@ -86,7 +86,34 @@ function createWorkspaceButtons(data) {
 
     listItem.appendChild(button);
     workspaceButtons.appendChild(listItem);
+
+    if (index === data.length - 1) {
+      const addWorkspaceButton = document.createElement('button');
+      addWorkspaceButton.type = 'button';
+      addWorkspaceButton.textContent = 'Add Workspace';
+      addWorkspaceButton.addEventListener('click', () => handleAddWorkspaceClick());
+
+      const addWorkspaceItem = document.createElement('li');
+      addWorkspaceItem.appendChild(addWorkspaceButton);
+      workspaceButtons.appendChild(addWorkspaceItem);
+    }
   });
+}
+function handleAddWorkspaceClick() {
+  // Open the form when the "Add Workspace" button is clicked
+  openForm();
+}
+
+function openForm() {
+  // Display the form
+  document.getElementById('myForm').style.display = 'block';
+
+  // You can add additional logic here to initialize the form or perform any other actions
+}
+
+function closeForm() {
+  // Close the form
+  document.getElementById('myForm').style.display = 'none';
 }
 
 function handleWorkspaceButtonClick(selectedWorkspaceId) {
@@ -96,7 +123,7 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   const workspaceNameElement = document.getElementById('workspace-link');
   const selectedWorkspace = workspaceData.find(workspace => workspace.id === selectedWorkspaceId);
   if (selectedWorkspace) {
-    workspaceNameElement.textContent = selectedWorkspace.name;
+    workspaceNameElement.textContent = 'Workspace: ' + selectedWorkspace.name;
   }
 
   fetchChannelData(workspaceId);

@@ -197,3 +197,16 @@ body {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
+
+/*#workspaceList, #channelList{*/
+/*  list-style: none;*/
+/*  padding: 0;*/
+/*}*/
+.menu-list li button {
+  list-style: none;
+  display: block;
+  width: 100%; /* Make buttons fill the width */
+  padding: 10px; /* Adjust padding for button size */
+  font-size: 16px; /* Adjust font size for button text */
+  font-family: Chalkboard, serif;
+}

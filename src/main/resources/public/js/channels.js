@@ -50,7 +50,7 @@ function handleChannelButtonClick(selectedChannelId) {
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
 
   if (selectedChannel) {
-    channelNameElement.textContent = selectedChannel.name;
+    channelNameElement.textContent = 'Channel: ' + selectedChannel.name;
   }
   fetchMessages(selectedChannelId)
     .then(messages => {
