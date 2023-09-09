@@ -35,14 +35,17 @@ async function fetchUser(id) {
 async function displayUserInfo() {
   try {
     const userJson = await fetchUser(userId());
+    console.log(JSON.stringify(userJson));
     const userInfo = document.getElementById('userInfo');
+    const picture = document.getElementById('userPic');
 
-    const userPic = document.getElementById('userPic');
-    const profilePic = `assets/imageuser${userID}.png`;
+    //    const userPic = document.getElementById('userPic');
+    const profilePic = `./assets/imageuser${userID}.png`;
+    picture.src = profilePic;
 
     const userName = userJson.firstName + ' ' + userJson.lastName;
     userInfo.innerHTML = userName;
-    console.log(userText);
+    console.log(userName);
   } catch (error) {
     console.error('Failed to fetch user info');
   }
@@ -51,5 +54,5 @@ async function displayUserInfo() {
 displayUserInfo();
 
 const userID = userId();
-
+console.log(userID);
 export { userID };
