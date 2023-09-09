@@ -49,6 +49,7 @@ async function fetchWorkspaceData() {
 
     // Check each workspaces' user and see if ANY of the user has and id that matches userJson.id
     // And if ANY of the user matches, add it to workspaceData.
+    // https://blog.debugeverything.com/javascript-filter-method-4-tips-on-how-to-use-efficiently/
     workspaceData = data.filter(workspace => workspace.users.some(user => user.id === userJson.id));
 
     console.log('All workspaces: ' + JSON.stringify(data));

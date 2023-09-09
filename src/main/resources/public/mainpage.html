@@ -15,10 +15,13 @@
       <div class="boxes">
         <div class="sidebar">
           <section class="sidebar-user">
-            <p>User Info Will Go Here</p>
+            <script src="user.js"></script>
+
+            <img src="./assets/imageuser${userID}.png" alt="OOPS" id="userPic" style="width: 50px; height: 50px" />
+            <p id="userInfo">User Info Will Go Here</p>
             <button type="button" class="collapsible" id="workspace-c-button"><i>Workspaces</i></button>
             <div class="content">
-              <ul id="workspaceList"></ul>
+              <ul id="workspaceList" style="list-style: none"></ul>
             </div>
             <button type="button" class="collapsible" id="channel-c-button"><i>Channels</i></button>
             <div class="content">
@@ -62,5 +65,6 @@
 
     <script type="module" src="js/channels.js"></script>
     <script type="module" src="js/workspaces.js"></script>
+    <script type="module" src="js/displayuserinfo.js"></script>
   </body>
 </html>
