@@ -156,7 +156,8 @@ body {
   background-color: #2e9390;
   border-radius: 10px;
 }
-
+.direct-messages-list a#direct-messages-link,
+.channel-list a#channel-link,
 .workspace-list a#workspace-link {
   text-decoration: none;
   color: white;
@@ -166,6 +167,8 @@ body {
   width: 80%; /* 90% width for the <a> */
 }
 
+.direct-messages-list .material-symbols-outlined,
+.channel-list .material-symbols-outlined,
 .workspace-list .material-symbols-outlined {
   font-size: 16px;
   display: inline-block;
