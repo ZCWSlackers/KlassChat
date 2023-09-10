@@ -13,7 +13,22 @@ import { channelId } from './channels.js';
 //    });
 //}
 
-function deleteMessage() {
+function userId() {
+  try {
+    var url_string = window.location.href.toLowerCase();
+    var url = new URL(url_string);
+    var userid = url.searchParams.get('userid');
+    // var geo = url.searchParams.get("geo");
+    // var size = url.searchParams.get("size");
+    console.log(userid);
+    return userid;
+  } catch (err) {
+    console.log("Issues with Parsing URL Parameter's - " + err);
+    return '0';
+  }
+}
+
+function deleteMessage(messageId) {
   console.log('DELETE IT');
 }
 
@@ -41,7 +56,7 @@ async function fetchMessages(channelId) {
       deleteButton.classList.add('delete-button');
       deleteButton.classList.add('feed-text');
       deleteButton.addEventListener('click', () => {
-        deleteMessage(); // will eventually be an actual function
+        deleteMessage(message.id); // will eventually be an actual function
       });
 
       article.classList.add('message-feed');
@@ -85,8 +100,10 @@ async function fetchMessages(channelId) {
       // Append the userPicSection and messageContentSection to the article
       article.appendChild(userPicSection);
       article.appendChild(messageContentSection);
-      article.appendChild(deleteButton);
-
+      // If message.user.id matches user.id, append
+      if (userID == userId() || userId() == 1) {
+        article.appendChild(deleteButton);
+      }
       // Append the article to the messageBox
       messageBox.appendChild(article);
     }
