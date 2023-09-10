@@ -168,4 +168,4 @@ function clearWorkspaceList() {
   workspaceList.innerHTML = '';
 }
 
-export { workspaceId, fetchWorkspaceData };
+export { workspaceId, fetchWorkspaceData, clearWorkspaceList };
