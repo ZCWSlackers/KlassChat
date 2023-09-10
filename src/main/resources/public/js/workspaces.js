@@ -110,4 +110,51 @@ window.addEventListener('load', () => {
   });
 });
 
+function addNewWorkspace() {
+  event.preventDefault();
+  document.getElementById('myForm').style.display = 'block';
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  const workspaceName = document.querySelector('input[name="workspaceName"]').value;
+  const workspaceDesc = document.querySelector('input[name="workspaceDesc"]').value;
+  // const search = document.querySelector('input[name="search"]').value;
+  const workspaceData = {
+    name: workspaceName,
+    description: workspaceDesc,
+  };
+  fetch(`${API_URL}/api/workspaces`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(workspaceData),
+  })
+    .then(response => {
+      if (response.ok) {
+        // Workspace creation was successful
+        console.log('Workspace created successfully.');
+        // Optionally, you can close the form here
+        closeForm();
+      } else {
+        // Handle errors if the request fails
+        console.error('Error creating workspace:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Network error:', error);
+    });
+}
+
+const form = document.querySelector('.form-container');
+form.addEventListener('submit', handleSubmit);
+const addButton = document.querySelector('.add-new-workspace');
+addButton.addEventListener('click', addNewWorkspace);
+const closeButton = document.getElementById('closeButton');
+closeButton.addEventListener('click', closeForm);
+
+function closeForm() {
+  document.getElementById('myForm').style.display = 'none';
+}
+
 export { workspaceId };
