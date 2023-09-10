@@ -33,6 +33,7 @@ function createChannelButtons(data) {
   data.forEach(channel => {
     const button = document.createElement('button');
     button.type = 'button';
+    button.className = 'workspace-channel-button';
     button.textContent = channel.name;
     button.addEventListener('click', () => handleChannelButtonClick(channel.id));
 
@@ -47,10 +48,12 @@ function handleChannelButtonClick(selectedChannelId) {
   console.log(channelId);
 
   const channelNameElement = document.querySelector('.channel-name');
+  const channelListElement = document.getElementById('channel-link');
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
 
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
+    channelListElement.textContent = 'Channel: ' + selectedChannel.name;
   }
   fetchMessages(selectedChannelId)
     .then(messages => {
