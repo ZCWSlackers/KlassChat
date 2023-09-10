@@ -167,4 +167,4 @@ function clearWorkspaceList() {
   workspaceList.innerHTML = '';
 }
 
-export { workspaceId };
+export { workspaceId, fetchWorkspaceData };

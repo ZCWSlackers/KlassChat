@@ -1,6 +1,6 @@
 import { API_URL } from './constants.js';
 import { fetchMessages } from './fetchmessages.js';
-import { workspaceId } from './workspaces.js';
+import { fetchWorkspaceData, workspaceId } from './workspaces.js';
 import { collapsibleButtons } from './collapsible.js';
 import { userID } from './displayuserinfo.js';
 
@@ -98,7 +98,7 @@ function handleChannelSubmit(event) {
         // Optionally, you can close the form here
         closeChannelForm()
           .then(() => clearChannelList())
-          .then(() => fetchChannelData());
+          .then(() => fetchWorkspaceData());
       } else {
         // Handle errors if the request fails
         console.error('Error creating channel:', response.statusText);
