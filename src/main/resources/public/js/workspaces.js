@@ -44,7 +44,7 @@ let workspaceData = [];
 //     .then(response => response.json())
 //     .then(data => {
 //       workspaceData = data;
-//       createWorkspaceButtons(data);
+//       createWorkspaceList(data);
 //       handleWorkspaceButtonClick(workspaceId);
 //     })
 //     .catch(error => {
@@ -82,6 +82,7 @@ function createWorkspaceButtons(data) {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = workspace.name;
+    button.className = 'workspace-channel-button';
     button.addEventListener('click', () => handleWorkspaceButtonClick(workspace.id));
 
     listItem.appendChild(button);
@@ -96,7 +97,7 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   const workspaceNameElement = document.getElementById('workspace-link');
   const selectedWorkspace = workspaceData.find(workspace => workspace.id === selectedWorkspaceId);
   if (selectedWorkspace) {
-    workspaceNameElement.textContent = selectedWorkspace.name;
+    workspaceNameElement.textContent = 'Workspace: ' + selectedWorkspace.name;
   }
 
   fetchChannelData(workspaceId);

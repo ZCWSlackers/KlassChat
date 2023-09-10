@@ -51,6 +51,7 @@
     "prettier:check": "prettier --check \"{,src/**/,webpack/,.blueprint/**/}*.{md,json,yml,html,cjs,mjs,js,ts,tsx,css,scss,java}\"",
     "prettier:format": "prettier --write \"{,src/**/,webpack/,.blueprint/**/}*.{md,json,yml,html,cjs,mjs,js,ts,tsx,css,scss,java}\"",
     "start": "npm run webapp:dev --",
+    "start ws": "node src/main/resources/server/server.js",
     "start-tls": "npm run webapp:dev -- --env.tls",
     "pretest": "npm run lint",
     "test": "npm run jest --",
@@ -95,7 +96,8 @@
     "redux": "4.2.0",
     "redux-thunk": "2.4.1",
     "tslib": "2.4.0",
-    "uuid": "8.3.2"
+    "uuid": "8.3.2",
+    "ws": "^8.14.1"
   },
   "devDependencies": {
     "@testing-library/react": "13.3.0",
