@@ -51,6 +51,7 @@ let workspaceData = [];
 //     .catch(error => {
 //       console.error('Error fetching workspace data: ', error);
 //     });
+
 async function fetchWorkspaceData() {
   try {
     const currentUser = userID;

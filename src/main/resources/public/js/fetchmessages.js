@@ -13,6 +13,10 @@ import { channelId } from './channels.js';
 //    });
 //}
 
+function deleteMessage() {
+  console.log('DELETE IT');
+}
+
 async function fetchMessages(channelId) {
   try {
     const response = await fetch(`${API_URL}/api/messages/channel/${channelId}`);
@@ -31,6 +35,14 @@ async function fetchMessages(channelId) {
       const article = document.createElement('article');
       const timestamp = new Date(message.timestamp);
       const formattedTimestamp = `${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('delete-button');
+      deleteButton.classList.add('feed-text');
+      deleteButton.addEventListener('click', () => {
+        deleteMessage(); // will eventually be an actual function
+      });
 
       article.classList.add('message-feed');
 
@@ -73,6 +85,7 @@ async function fetchMessages(channelId) {
       // Append the userPicSection and messageContentSection to the article
       article.appendChild(userPicSection);
       article.appendChild(messageContentSection);
+      article.appendChild(deleteButton);
 
       // Append the article to the messageBox
       messageBox.appendChild(article);
