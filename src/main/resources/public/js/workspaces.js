@@ -1,23 +1,24 @@
 import { API_URL } from './constants.js';
 import { fetchChannelData } from './channels.js';
+import { userID } from './displayuserinfo.js';
 
 // Each workspace has a list of users.
 // If your id is not present in that list, you should not be able to see that workspace.
 
-function userId() {
-  try {
-    var url_string = window.location.href.toLowerCase();
-    var url = new URL(url_string);
-    var userid = url.searchParams.get('userid');
-    // var geo = url.searchParams.get("geo");
-    // var size = url.searchParams.get("size");
-    console.log(userid);
-    return userid;
-  } catch (err) {
-    console.log("Issues with Parsing URL Parameter's - " + err);
-    return '0';
-  }
-}
+// function userId() {
+//   try {
+//     var url_string = window.location.href.toLowerCase();
+//     var url = new URL(url_string);
+//     var userid = url.searchParams.get('userid');
+//     // var geo = url.searchParams.get("geo");
+//     // var size = url.searchParams.get("size");
+//     console.log(userid);
+//     return userid;
+//   } catch (err) {
+//     console.log("Issues with Parsing URL Parameter's - " + err);
+//     return '0';
+//   }
+// }
 
 async function fetchUser(id) {
   try {
@@ -52,7 +53,7 @@ let workspaceData = [];
 //     });
 async function fetchWorkspaceData() {
   try {
-    const currentUser = userId();
+    const currentUser = userID;
     const userJson = await fetchUser(currentUser);
 
     const dataResponse = await fetch(`${API_URL}/api/workspaces`);
@@ -122,6 +123,7 @@ function handleSubmit(event) {
   const workspaceData = {
     name: workspaceName,
     description: workspaceDesc,
+    users: [{ id: userID }],
   };
   fetch(`${API_URL}/api/workspaces`, {
     method: 'POST',
