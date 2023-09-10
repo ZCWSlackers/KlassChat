@@ -30,7 +30,7 @@
                 <ul id="workspaceList"></ul>
                 <button class="add-new-workspace"><span class="material-symbols-outlined">add</span> Add Workspace</button>
                 <div class="form-popup" id="myForm">
-                  <form action="/action_page.php" class="form-container">
+                  <form autocomplete="off" class="form-container">
                     <h1>Create Workspace</h1>
 
                     <label for="workspaceName"><b>Workspace Name</b></label>
@@ -39,9 +39,13 @@
                     <label for="workspaceDesc"><b>Description</b></label>
                     <input type="text" id="workspaceDesc" placeholder="Enter a Description" name="workspaceDesc" />
 
-                    <!--                    <label for="search"><b>Search</b></label>-->
-                    <!--                    <input type="text" placeholder="Search..." name="search">-->
-
+                    <div class="autocomplete" style="width: 100%">
+                      Add Users
+                      <input id="userSearchInput" type="text" name="userSearch" placeholder="Search for Users" />
+                    </div>
+                    <div id="userSearchResults"></div>
+                    <div id="selectedUsers"></div>
+                    <button type="button" class="btn" id="addUserButton">Add User</button>
                     <button type="submit" class="btn">Create Workspace</button>
                     <button type="button" class="btn cancel" id="closeButton">Close</button>
                   </form>

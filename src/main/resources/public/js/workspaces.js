@@ -2,6 +2,8 @@ import { API_URL } from './constants.js';
 import { fetchChannelData } from './channels.js';
 import { userID } from './displayuserinfo.js';
 
+const selectedUsers = [{ id: userID }];
+
 // Each workspace has a list of users.
 // If your id is not present in that list, you should not be able to see that workspace.
 
