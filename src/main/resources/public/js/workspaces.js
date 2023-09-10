@@ -137,7 +137,9 @@ function handleSubmit(event) {
         // Workspace creation was successful
         console.log('Workspace created successfully.');
         // Optionally, you can close the form here
-        closeForm();
+        closeForm()
+          .then(() => clearWorkspaceList())
+          .then(() => fetchWorkspaceData());
       } else {
         // Handle errors if the request fails
         console.error('Error creating workspace:', response.statusText);
@@ -157,6 +159,12 @@ closeButton.addEventListener('click', closeForm);
 
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
+  return Promise.resolve();
+}
+
+function clearWorkspaceList() {
+  const workspaceList = document.getElementById('workspaceList');
+  workspaceList.innerHTML = '';
 }
 
 export { workspaceId };

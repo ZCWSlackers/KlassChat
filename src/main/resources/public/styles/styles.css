@@ -16,6 +16,7 @@
   flex-grow: 1; /* Allow the container to grow and occupy available space.  Increase to raise rate of growth */
 }
 .sidebar {
+  min-width: 140px;
   width: 20%; /* set the width as % of container (boxes) */
   background-color: #080828;
   float: left; /* float to the left of container (boxes).  I don't think this is necessary*/
@@ -156,6 +157,21 @@ body {
   border-radius: 10px;
 }
 
+.workspace-list a#workspace-link {
+  text-decoration: none;
+  color: white;
+  padding: 14px 16px;
+  font-size: 16px;
+  display: inline-block;
+  width: 80%; /* 90% width for the <a> */
+}
+
+.workspace-list .material-symbols-outlined {
+  font-size: 16px;
+  display: inline-block;
+  width: 20%; /* 10% width for the <span> */
+}
+
 /* Logo, navigation menu styling */
 .workspace-channel-button,
 .workspace-list,
@@ -263,39 +279,39 @@ body {
 .form-popup {
   display: none;
   position: fixed;
-  bottom: 0;
-  right: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
+  max-width: 500px;
   padding: 10px;
-  background-color: white;
+  background-color: #080828;
 }
 
 /* Full-width input fields */
-.form-container input[type='text'],
-.form-container input[type='password'] {
+.form-container input[type='text'] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  box-sizing: border-box;
 }
 
 /* When the inputs get focus, do something */
-.form-container input[type='text']:focus,
-.form-container input[type='password']:focus {
+.form-container input[type='text']:focus {
   background-color: #ddd;
   outline: none;
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04aa6d;
+  background-color: #2e9390;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -307,7 +323,7 @@ body {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: #555;
 }
 
 /* Add some hover effects to buttons */
