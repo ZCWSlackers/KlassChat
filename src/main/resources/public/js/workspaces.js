@@ -29,9 +29,9 @@ async function fetchUser(id) {
         Accept: 'application/json',
       },
     });
-    let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
+    // Getting the JSON Body out of the Response
     //    console.log(userJson);
-    return userJson;
+    return await userResponse.json();
   } catch (error) {
     console.log('Error Fetching User JSON');
   }

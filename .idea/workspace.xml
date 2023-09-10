@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7135bf13-288b-4d7e-8236-b1022cca0260" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/channels.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/channels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

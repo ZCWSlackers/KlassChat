@@ -2,6 +2,7 @@ import { API_URL } from './constants.js';
 import { fetchMessages } from './fetchmessages.js';
 import { workspaceId } from './workspaces.js';
 import { collapsibleButtons } from './collapsible.js';
+import { userID } from './displayuserinfo.js';
 
 let channelId = 1;
 let channelData = [];
@@ -63,6 +64,61 @@ function handleChannelButtonClick(selectedChannelId) {
     .catch(error => {
       console.error('Error fetching messages:', error);
     });
+}
+
+function addNewChannel() {
+  event.preventDefault();
+  document.getElementById('myChannelForm').style.display = 'block';
+}
+function handleChannelSubmit(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  const channelName = document.querySelector('input[name="channelName"]').value;
+  const channelDesc = document.querySelector('input[name="channelDesc"]').value;
+  // const search = document.querySelector('input[name="search"]').value;
+  const channelData = {
+    name: channelName,
+    description: channelDesc,
+    workspace: {
+      id: workspaceId,
+    },
+    users: [{ id: userID }],
+  };
+  fetch(`${API_URL}/api/channels`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(channelData),
+  })
+    .then(response => {
+      if (response.ok) {
+        // Channel creation was successful
+        console.log('Channel created successfully.');
+        // Optionally, you can close the form here
+        closeChannelForm()
+          .then(() => clearChannelList())
+          .then(() => fetchChannelData());
+      } else {
+        // Handle errors if the request fails
+        console.error('Error creating channel:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Network error:', error);
+    });
+}
+
+const channelForm = document.getElementById('channel-form');
+channelForm.addEventListener('submit', handleChannelSubmit);
+const addButton = document.querySelector('.add-new-channel');
+addButton.addEventListener('click', addNewChannel);
+const closeButton = document.getElementById('channelCloseButton');
+closeButton.addEventListener('click', closeChannelForm);
+
+function closeChannelForm() {
+  document.getElementById('myChannelForm').style.display = 'none';
+  return Promise.resolve();
 }
 
 function clearChannelList() {
