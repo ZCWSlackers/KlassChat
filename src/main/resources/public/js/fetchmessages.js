@@ -1,5 +1,6 @@
 import { API_URL } from './constants.js';
 import { channelId } from './channels.js';
+
 //import { userFirstName } from './sendingmessage.js';
 
 //function fetchMessages(channelId) {
@@ -28,8 +29,24 @@ function userId() {
   }
 }
 
-function deleteMessage(messageId) {
-  console.log('DELETE IT');
+async function deleteMessage(messageId) {
+  // get the message id, and call a delete
+  try {
+    const deleteRequest = await fetch(`${API_URL}/api/messages/${messageId}`, {
+      method: 'DELETE', // Calling the delete method
+      header: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.status === 204) {
+      console.log('Message has been deleted');
+    } else {
+      console.error('Something went wrong', error);
+    }
+  } catch (error) {
+    console.error('Error deleting that message', error);
+  }
+  fetchMessages(channelId); // Refresh the page after a deletion.
 }
 
 async function fetchMessages(channelId) {
