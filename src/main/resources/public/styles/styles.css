@@ -180,7 +180,9 @@ body {
 .workspace-list,
 .channel-list,
 .direct-messages-list,
-.add-new-workspace {
+.add-new-workspace,
+.add-new-channel,
+.add-new-dm {
   overflow: hidden;
   background-color: #111;
   position: relative;
@@ -219,7 +221,9 @@ body {
 .workspace-list a:hover,
 .channel-list a:hover,
 .direct-messages-list a:hover,
-.add-new-workspace:hover {
+.add-new-workspace:hover,
+.add-new-channel:hover,
+.add-new-dm:hover {
   background-color: #ddd;
   color: black;
 }
@@ -236,6 +240,8 @@ body {
 }
 .menu-list li button,
 .add-new-workspace,
+.add-new-channel,
+.add-new-dm,
 .workspace-channel-button {
   list-style: none;
   display: block;
@@ -247,7 +253,9 @@ body {
 
 .workspace-channel-button,
 .menu-list li button,
-.add-new-workspace {
+.add-new-workspace,
+.add-new-channel,
+.add-new-dm {
   list-style: none;
   width: 100%;
   text-decoration: none;
