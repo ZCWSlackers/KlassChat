@@ -77,43 +77,17 @@ async function fetchWorkspaceData() {
 function createWorkspaceButtons(data) {
   const workspaceButtons = document.getElementById('workspaceList');
 
-  data.forEach((workspace, index) => {
+  data.forEach(workspace => {
     const listItem = document.createElement('li');
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = workspace.name;
+    button.className = 'workspace-channel-button';
     button.addEventListener('click', () => handleWorkspaceButtonClick(workspace.id));
 
     listItem.appendChild(button);
     workspaceButtons.appendChild(listItem);
-
-    if (index === data.length - 1) {
-      const addWorkspaceButton = document.createElement('button');
-      addWorkspaceButton.type = 'button';
-      addWorkspaceButton.textContent = 'Add Workspace';
-      addWorkspaceButton.addEventListener('click', () => handleAddWorkspaceClick());
-
-      const addWorkspaceItem = document.createElement('li');
-      addWorkspaceItem.appendChild(addWorkspaceButton);
-      workspaceButtons.appendChild(addWorkspaceItem);
-    }
   });
-}
-function handleAddWorkspaceClick() {
-  // Open the form when the "Add Workspace" button is clicked
-  openForm();
-}
-
-function openForm() {
-  // Display the form
-  document.getElementById('myForm').style.display = 'block';
-
-  // You can add additional logic here to initialize the form or perform any other actions
-}
-
-function closeForm() {
-  // Close the form
-  document.getElementById('myForm').style.display = 'none';
 }
 
 function handleWorkspaceButtonClick(selectedWorkspaceId) {

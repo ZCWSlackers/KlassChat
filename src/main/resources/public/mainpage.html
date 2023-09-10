@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="styles/messages.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Slackers KlassChat</title>
@@ -26,6 +27,9 @@
                 <a href="#" id="workspace-link">Workspaces</a>
                 <div id="menus">
                   <ul id="workspaceList"></ul>
+                  <button class="add-new-workspace" onclick="addNewWorkspace()">
+                    <span class="material-symbols-outlined">add</span> New
+                  </button>
                 </div>
                 <a href="javascript:void(0);" class="icon" onclick="toggleWorkspaceMenus()">
                   <span class="material-symbols-outlined">menu</span>

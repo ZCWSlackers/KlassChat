@@ -33,6 +33,7 @@ function createChannelButtons(data) {
   data.forEach(channel => {
     const button = document.createElement('button');
     button.type = 'button';
+    button.className = 'workspace-channel-button';
     button.textContent = channel.name;
     button.addEventListener('click', () => handleChannelButtonClick(channel.id));
 
