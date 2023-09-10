@@ -51,8 +51,9 @@
 }
 
 .time-stamp {
-  font-size: 12px;
+  font-size: 10px;
   color: #f1e6a3;
+  padding-left: 10px;
 }
 
 /* Style for the feed text */

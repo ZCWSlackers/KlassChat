@@ -96,6 +96,13 @@ body {
 .sidebar-user {
   color: #2e76ce;
 }
+.sidebar-user {
+  display: flex;
+  align-items: center;
+}
+#userPic {
+  margin-right: 10px;
+}
 .collapsible-container {
   display: flex;
   justify-content: space-between;
