@@ -2,99 +2,83 @@ import { API_URL } from './constants.js';
 import { channelId } from './channels.js';
 //import { userFirstName } from './sendingmessage.js';
 
-//async function fetchUser(id) {
-//  fetch(`${API_URL}/api/users/${id}`, {
-//    method: 'GET',
-//    headers: {
-//      Accept: 'application/json',
-//    },
-//  })
-//    .then(response => {
-//      if (!response.ok) {
-//        throw new Error('Network response was not ok');
-//      }
-//      return response.json();
-//    })
-//    .then(data => {
-//      // Log the JSON data
-//      console.log(JSON.stringify(data));
-//      userFirstName = data.firstName;
-////      console.log(userFirstName);
-//
-//      // Do something with the data, for example, update the UI
-//      // You can access the JSON data as 'data' here
-//      return data;
-//      // Or return this as is
+//function fetchMessages(channelId) {
+//  fetch(`${API_URL}/api/messages/channel/${channelId}`)
+//    .then(response => response.json())
+//    .then(messages => {
+//      displayMessages(messages);
 //    })
 //    .catch(error => {
-//      console.error('Error:', error);
-//      // Handle the error, e.g., display an error message to the user
+//      console.error('Error fetching messages: ', error);
 //    });
 //}
 
-async function fetchUser(id) {
+async function fetchMessages(channelId) {
   try {
-    let userResponse = await fetch(`${API_URL}/api/users/${id}`, {
-      // Get the response of the fetch
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-      },
-    });
-    let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
-    //    console.log(userJson);
-    return userJson;
-  } catch (error) {
-    console.log('Error Fetching User JSON');
-  }
-}
+    const response = await fetch(`${API_URL}/api/messages/channel/${channelId}`);
+    const messages = await response.json();
 
-function fetchMessages(channelId) {
-  fetch(`${API_URL}/api/messages/channel/${channelId}`)
-    .then(response => response.json())
-    .then(messages => {
-      displayMessages(messages);
-    })
-    .catch(error => {
-      console.error('Error fetching messages: ', error);
-    });
-}
+    const messageBox = document.querySelector('.messageBox');
+    // Clear any existing messages in the messageBox
+    messageBox.innerHTML = '';
 
-async function displayMessages(messages) {
-  const messageBox = document.getElementById('message-box');
-  messageBox.innerHTML = '';
-  if (messages.length === 0) {
-    messageBox.textContent = 'Send a message to start the chat!';
-  } else {
-    const messageList = document.createElement('ul');
-    messageList.classList.add('message-list'); // For the styles.css
-
+    // Iterate through the messages and create an article for each one
     for (const message of messages) {
-      const messageItem = document.createElement('li');
-      const messageTime = document.createElement('li');
-      const messageSender = document.createElement('li');
-      const emptySpace = document.createElement('li');
+      // Add default values for userName and userPic if they are missing or undefined
+      const userID = message.user.id;
+      const userName = message.user.firstName || 'Unknown User';
+      const userPic = message.profilePic || `assets/imageuser${userID}.png` || 'assets/smile.png';
+      const article = document.createElement('article');
+      const timestamp = new Date(message.timestamp);
+      const formattedTimestamp = `${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`;
 
-      //      console.log(message.user.id);
-      try {
-        const userData = await fetchUser(message.user.id);
-        //        console.log(userData);
+      article.classList.add('message-feed');
 
-        messageSender.textContent = userData.firstName + ' :';
-        messageItem.textContent = message.content;
-        messageTime.textContent = message.timestamp + '\n';
-        emptySpace.textContent = '  ';
+      // Create the feed-user-pic section
+      const userPicSection = document.createElement('section');
+      userPicSection.classList.add('feed-user-pic');
+      const userPicImg = document.createElement('img');
+      userPicImg.src = userPic;
+      userPicImg.alt = userName;
+      userPicImg.width = 40;
+      const userNameInitial = document.createElement('span');
+      userNameInitial.textContent = userName.charAt(0);
+      userPicSection.appendChild(userPicImg);
+      userPicSection.appendChild(userNameInitial);
 
-        //        console.log(messageSender.textContent);
-        messageList.appendChild(messageSender);
-        messageList.appendChild(messageItem);
-        messageList.appendChild(messageTime);
-        messageList.appendChild(emptySpace);
-      } catch (error) {
-        console.error('Error fetching user data: ', error);
-      }
+      // Create the feed-message-content section
+      const messageContentSection = document.createElement('section');
+      messageContentSection.classList.add('feed-message-content');
+
+      // Create the feed-user-info section
+      const userInfoSection = document.createElement('section');
+      userInfoSection.classList.add('feed-user-info');
+      const userNameHeader = document.createElement('h4');
+      userNameHeader.textContent = userName;
+      const timeStampSpan = document.createElement('span');
+      timeStampSpan.classList.add('time-stamp');
+      timeStampSpan.textContent = formattedTimestamp;
+      userNameHeader.appendChild(timeStampSpan);
+      userInfoSection.appendChild(userNameHeader);
+
+      // Create the feed-text paragraph
+      const messageText = document.createElement('p');
+      messageText.classList.add('feed-text');
+      messageText.textContent = message.content;
+
+      // Append everything to the messageContentSection
+      messageContentSection.appendChild(userInfoSection);
+      messageContentSection.appendChild(messageText);
+
+      // Append the userPicSection and messageContentSection to the article
+      article.appendChild(userPicSection);
+      article.appendChild(messageContentSection);
+
+      // Append the article to the messageBox
+      messageBox.appendChild(article);
     }
-    messageBox.appendChild(messageList);
+  } catch (error) {
+    console.error('Error fetching messages: ', error);
   }
 }
 

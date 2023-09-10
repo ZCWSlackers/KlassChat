@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import rocks.zipcode.klasschat.domain.Channel;
 import rocks.zipcode.klasschat.repository.ChannelRepository;
 import rocks.zipcode.klasschat.service.dto.ChannelDTO;
+import rocks.zipcode.klasschat.service.dto.MessageDTO;
 import rocks.zipcode.klasschat.service.mapper.ChannelMapper;
 
 /**
@@ -119,5 +120,11 @@ public class ChannelService {
     public void delete(Long id) {
         log.debug("Request to delete Channel : {}", id);
         channelRepository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ChannelDTO> findByWorkspaceId(Long workspaceId) {
+        log.debug("Request to get Channels by Workspace ID: {}", workspaceId);
+        return channelRepository.findByWorkspaceId(workspaceId).stream().map(channelMapper::toDto).collect(Collectors.toList());
     }
 }

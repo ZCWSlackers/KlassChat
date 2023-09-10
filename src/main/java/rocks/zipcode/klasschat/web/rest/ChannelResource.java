@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import rocks.zipcode.klasschat.repository.ChannelRepository;
 import rocks.zipcode.klasschat.service.ChannelService;
 import rocks.zipcode.klasschat.service.dto.ChannelDTO;
+import rocks.zipcode.klasschat.service.dto.MessageDTO;
 import rocks.zipcode.klasschat.web.rest.errors.BadRequestAlertException;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
@@ -171,5 +172,17 @@ public class ChannelResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    /**
+     * GET /channel/workspace/{workspaceId} : Get all channels for a specific workspace by its ID.
+     *
+     * @param workspaceId the ID of the workspace.
+     * @return the ResponseEntity with status 200 (OK) and the list of channels, or with status 404 (Not Found).
+     */
+    @GetMapping("/channels/workspace/{workspaceId}")
+    public ResponseEntity<List<ChannelDTO>> getChannelsByWorkspaceId(@PathVariable Long workspaceId) {
+        List<ChannelDTO> channels = channelService.findByWorkspaceId(workspaceId);
+        return ResponseEntity.ok(channels);
     }
 }

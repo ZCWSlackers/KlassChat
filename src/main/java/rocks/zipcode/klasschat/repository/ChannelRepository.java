@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import rocks.zipcode.klasschat.domain.Channel;
+import rocks.zipcode.klasschat.domain.Workspace;
 
 /**
  * Spring Data JPA repository for the Channel entity.
@@ -28,4 +29,6 @@ public interface ChannelRepository extends ChannelRepositoryWithBagRelationships
     default Page<Channel> findAllWithEagerRelationships(Pageable pageable) {
         return this.fetchBagRelationships(this.findAll(pageable));
     }
+
+    List<Channel> findByWorkspaceId(Long workspaceId);
 }
