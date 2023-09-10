@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ff427bc-6f76-4543-b334-c92333d5756a" name="Changes" comment="">
+    <list default="true" id="7135bf13-288b-4d7e-8236-b1022cca0260" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,39 +17,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="JavaScript File" />
-        <option value="CSS File" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2UcNhULArJToFsaL19SEsy7MmXQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectId" id="2VB4UuDOJU04cdFD9Alzez66eoO" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -56,46 +40,21 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;postgresAttempt&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/min/Desktop/FinalProjet/KlassChat&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;liz&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;4a7cac11ee262efa614b007d5ba1e91d&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/liz/LoPro/Other/GroupProjects/KlassChat/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="es6.move.members.recent.items">
-      <recent name="$PROJECT_DIR$/src/main/resources/public/js/collapsible.js" />
-      <recent name="$PROJECT_DIR$/src/main/resources/public/constants.js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/public/assets" />
-      <recent name="$PROJECT_DIR$/src/main/resources/public" />
-      <recent name="$PROJECT_DIR$/src/main/resources/public/html" />
-      <recent name="$PROJECT_DIR$/src/main/resources/public/assets/html" />
-      <recent name="$PROJECT_DIR$/src/main/resources/public/styles" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="KlassChatApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="klass-chat" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="rocks.zipcode.klasschat.KlassChatApp" />
       <method v="2">
@@ -106,33 +65,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4ff427bc-6f76-4543-b334-c92333d5756a" name="Changes" comment="" />
-      <created>1693235028002</created>
+      <changelist id="7135bf13-288b-4d7e-8236-b1022cca0260" name="Changes" comment="" />
+      <created>1694296159489</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1693235028002</updated>
-      <workItem from="1693235029013" duration="366000" />
-      <workItem from="1693572819869" duration="1593000" />
-      <workItem from="1694032336939" duration="18058000" />
-      <workItem from="1694291068241" duration="841000" />
+      <updated>1694296159489</updated>
+      <workItem from="1694296162549" duration="9576000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

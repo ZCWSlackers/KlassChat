@@ -33,6 +33,7 @@ function createChannelButtons(data) {
   data.forEach(channel => {
     const button = document.createElement('button');
     button.type = 'button';
+    button.className = 'workspace-channel-button';
     button.textContent = channel.name;
     button.addEventListener('click', () => handleChannelButtonClick(channel.id));
 
@@ -47,14 +48,21 @@ function handleChannelButtonClick(selectedChannelId) {
   console.log(channelId);
 
   const channelNameElement = document.querySelector('.channel-name');
+  const channelListElement = document.getElementById('channel-link');
   const selectedChannel = channelData.find(channel => channel.id === selectedChannelId);
-  const channelButtonElement = document.getElementById('channel-c-button');
 
   if (selectedChannel) {
     channelNameElement.textContent = selectedChannel.name;
-    channelButtonElement.textContent = 'Channel: ' + selectedChannel.name;
+    channelListElement.textContent = 'Channel: ' + selectedChannel.name;
   }
-  fetchMessages(selectedChannelId);
+  fetchMessages(selectedChannelId)
+    .then(messages => {
+      // Handle messages here
+      console.log('Received messages:', messages);
+    })
+    .catch(error => {
+      console.error('Error fetching messages:', error);
+    });
 }
 
 function clearChannelList() {
