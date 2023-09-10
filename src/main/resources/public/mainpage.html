@@ -55,6 +55,21 @@
               <a href="#" id="channel-link">Channels</a>
               <div id="channel-menus">
                 <ul id="channelList"></ul>
+                <button class="add-new-channel"><span class="material-symbols-outlined">add</span> Add Channel</button>
+                <div class="form-popup" id="myChannelForm">
+                  <form action="" class="form-container" id="channel-form">
+                    <h1>Create Channel</h1>
+
+                    <label for="channelName"><b>Channel Name</b></label>
+                    <input type="text" id="channelName" placeholder="Enter Channel Name" name="channelName" required />
+
+                    <label for="channelDesc"><b>Description</b></label>
+                    <input type="text" id="channelDesc" placeholder="Enter a Description" name="channelDesc" />
+
+                    <button type="submit" class="btn">Create Channel</button>
+                    <button type="button" class="btn cancel" id="channelCloseButton">Close</button>
+                  </form>
+                </div>
               </div>
               <a href="javascript:void(0);" class="icon" onclick="toggleChannelMenus()">
                 <span class="material-symbols-outlined">menu</span>
@@ -64,6 +79,21 @@
               <a href="#" id="direct-messages-link">Direct Messages</a>
               <div id="direct-messages-menus">
                 <ul id="directMessagesList"></ul>
+                <button class="add-new-dm"><span class="material-symbols-outlined">add</span> New Message</button>
+                <div class="form-popup" id="myDMForm">
+                  <form action="/action_page.php" class="form-container">
+                    <h1>New Message</h1>
+
+                    <label for="dMName"><b>Message Name</b></label>
+                    <input type="text" id="dMName" placeholder="Enter Message Name" name="dMName" required />
+
+                    <label for="dMDesc"><b>Description</b></label>
+                    <input type="text" id="dMDesc" placeholder="Enter a Description" name="dMDesc" />
+
+                    <button type="submit" class="btn">Create Message</button>
+                    <button type="button" class="btn cancel" id="dMCloseButton">Close</button>
+                  </form>
+                </div>
               </div>
               <a href="javascript:void(0);" class="icon" onclick="toggleDirectMessagesMenus()">
                 <span class="material-symbols-outlined">menu</span>
