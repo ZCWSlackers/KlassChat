@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="styles/messages.css" />
+    <link rel="stylesheet" type="text/css" href="styles/autocomplete.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
@@ -30,7 +31,7 @@
                 <ul id="workspaceList"></ul>
                 <button class="add-new-workspace"><span class="material-symbols-outlined">add</span> Add Workspace</button>
                 <div class="form-popup" id="myForm">
-                  <form autocomplete="off" class="form-container">
+                  <form autocomplete="off" class="form-container" onsubmit="handleForm(); return false;">
                     <h1>Create Workspace</h1>
 
                     <label for="workspaceName"><b>Workspace Name</b></label>
@@ -138,6 +139,7 @@
     <script type="module" src="js/channels.js"></script>
     <script type="module" src="js/workspaces.js"></script>
     <script type="module" src="js/displayuserinfo.js"></script>
+    <script type="module" src="js/autocomplete.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>

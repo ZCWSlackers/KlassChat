@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7135bf13-288b-4d7e-8236-b1022cca0260" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/js/autocomplete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/liztest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/styles/autocomplete.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/displayuserinfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/displayuserinfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -40,10 +45,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "liz",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",

@@ -2,9 +2,9 @@ import { API_URL } from './constants.js';
 
 function userId() {
   try {
-    var url_string = window.location.href.toLowerCase();
-    var url = new URL(url_string);
-    var userid = url.searchParams.get('userid');
+    let url_string = window.location.href.toLowerCase();
+    let url = new URL(url_string);
+    let userid = url.searchParams.get('userid');
     // var geo = url.searchParams.get("geo");
     // var size = url.searchParams.get("size");
     console.log(userid);
@@ -24,9 +24,9 @@ async function fetchUser(id) {
         Accept: 'application/json',
       },
     });
-    let userJson = await userResponse.json(); // Getting the JSON Body out of the Response
+    // Getting the JSON Body out of the Response
     //    console.log(userJson);
-    return userJson;
+    return await userResponse.json();
   } catch (error) {
     console.log('Error Fetching User JSON');
   }
@@ -40,8 +40,7 @@ async function displayUserInfo() {
     const picture = document.getElementById('userPic');
 
     //    const userPic = document.getElementById('userPic');
-    const profilePic = `./assets/imageuser${userID}.png`;
-    picture.src = profilePic;
+    picture.src = `./assets/imageuser${userID}.png`;
 
     const userName = userJson.firstName + ' ' + userJson.lastName;
     userInfo.innerHTML = userName;
@@ -51,8 +50,28 @@ async function displayUserInfo() {
   }
 }
 
+async function fetchAllUsers() {
+  const allUsers = []; // array to store users
+
+  try {
+    const response = await fetch('/api/users');
+    if (!response.ok) {
+      throw new Error('Failed to fetch users');
+    }
+    const users = await response.json();
+
+    // Add the fetched users to the allUsers array
+    allUsers.push(...users);
+
+    return allUsers; // Return the array of users
+  } catch (error) {
+    console.error('Error fetching all users:', error);
+    throw error;
+  }
+}
+
 displayUserInfo();
 
 const userID = userId();
 console.log(userID);
-export { userID };
+export { userID, fetchAllUsers };
