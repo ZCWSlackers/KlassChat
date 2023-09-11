@@ -101,7 +101,11 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   if (selectedWorkspace) {
     workspaceNameElement.textContent = 'Workspace: ' + selectedWorkspace.name;
   }
-
+  let messageBox = document.querySelector('.messageBox');
+  // Clear any existing messages in the messageBox
+  messageBox.innerHTML = '';
+  console.log(messageBox);
+  console.log('is this getting called');
   fetchChannelData(workspaceId);
 }
 
