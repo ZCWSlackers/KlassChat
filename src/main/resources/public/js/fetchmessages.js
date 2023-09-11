@@ -1,5 +1,6 @@
 import { API_URL } from './constants.js';
 import { channelId } from './channels.js';
+
 //import { userFirstName } from './sendingmessage.js';
 
 //function fetchMessages(channelId) {
@@ -12,6 +13,41 @@ import { channelId } from './channels.js';
 //      console.error('Error fetching messages: ', error);
 //    });
 //}
+
+function userId() {
+  try {
+    var url_string = window.location.href.toLowerCase();
+    var url = new URL(url_string);
+    var userid = url.searchParams.get('userid');
+    // var geo = url.searchParams.get("geo");
+    // var size = url.searchParams.get("size");
+    console.log(userid);
+    return userid;
+  } catch (err) {
+    console.log("Issues with Parsing URL Parameter's - " + err);
+    return '0';
+  }
+}
+
+async function deleteMessage(messageId) {
+  // get the message id, and call a delete
+  try {
+    const deleteRequest = await fetch(`${API_URL}/api/messages/${messageId}`, {
+      method: 'DELETE', // Calling the delete method
+      header: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.status === 204) {
+      console.log('Message has been deleted');
+    } else {
+      console.error('Something went wrong', error);
+    }
+  } catch (error) {
+    console.error('Error deleting that message', error);
+  }
+  fetchMessages(channelId); // Refresh the page after a deletion.
+}
 
 async function fetchMessages(channelId) {
   try {
@@ -31,6 +67,14 @@ async function fetchMessages(channelId) {
       const article = document.createElement('article');
       const timestamp = new Date(message.timestamp);
       const formattedTimestamp = `${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('delete-button');
+      deleteButton.classList.add('feed-text');
+      deleteButton.addEventListener('click', () => {
+        deleteMessage(message.id); // will eventually be an actual function
+      });
 
       article.classList.add('message-feed');
 
@@ -73,7 +117,10 @@ async function fetchMessages(channelId) {
       // Append the userPicSection and messageContentSection to the article
       article.appendChild(userPicSection);
       article.appendChild(messageContentSection);
-
+      // If message.user.id matches user.id, append
+      if (userID == userId() || userId() == 1) {
+        article.appendChild(deleteButton);
+      }
       // Append the article to the messageBox
       messageBox.appendChild(article);
     }

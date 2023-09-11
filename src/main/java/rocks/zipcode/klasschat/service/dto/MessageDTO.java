@@ -3,8 +3,11 @@ package rocks.zipcode.klasschat.service.dto;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Lob;
 import javax.validation.constraints.*;
+import rocks.zipcode.klasschat.KlassChatApp;
 
 /**
  * A DTO for the {@link rocks.zipcode.klasschat.domain.Message} entity.
@@ -49,6 +52,8 @@ public class MessageDTO implements Serializable {
     }
 
     public UserDTO getUser() {
+        //        Logger logger = Logger.getLogger(KlassChatApp.class.getName());
+        //        logger.log(Level.WARNING, user.toString());
         return user;
     }
 

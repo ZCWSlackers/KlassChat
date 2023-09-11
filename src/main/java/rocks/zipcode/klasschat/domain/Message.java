@@ -35,8 +35,10 @@ public class Message implements Serializable {
     @Column(name = "timestamp", nullable = false)
     private Instant timestamp;
 
-    @ManyToOne
+    @ManyToOne/*(fetch = FetchType.EAGER, cascade = CascadeType.ALL)*/
     private User user;
+
+    //need a fetch type
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "workspace", "users", "messages" }, allowSetters = true)

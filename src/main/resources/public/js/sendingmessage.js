@@ -20,6 +20,13 @@ import { fetchMessages } from './fetchmessages.js';
 //  }
 //}
 
+//function fetchMessagesPeriodically() {
+//  fetchMessages(channelId);
+//}
+
+// Literally just does the fetch every 1.5 seconds
+//setInterval(fetchMessagesPeriodically, 1500);
+
 function userId() {
   try {
     var url_string = window.location.href.toLowerCase();
@@ -46,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const message = messageTextarea.value;
 
     if (message.trim() === '') {
-      responseMessage.innerText = 'Please enter a message.';
+      //      fetchMessages(channelId);
       return;
     }
 
