@@ -1,6 +1,6 @@
 .header {
   height: 10vh;
-  background-color: #222222;
+  background-color: #333333;
 }
 .container {
   /* Box for everything */
@@ -17,7 +17,7 @@
 }
 .sidebar {
   width: 20%; /* set the width as % of container (boxes) */
-  background-color: #080828;
+  background-color: #333333;
   float: left; /* float to the left of container (boxes).  I don't think this is necessary*/
   box-sizing: border-box;
   /*margin-right: 10px;*/
@@ -30,7 +30,7 @@
   padding: 30px;
   height: 100vh;
   box-sizing: border-box;
-  background-color: #222222;
+  background-color: #00cccc;
 }
 .messageBox {
   flex: 9;
@@ -48,7 +48,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #8f8ab9;
+  background-color: #c0c0c0;
   margin: 5px;
   border-radius: 5px;
   color: white;
@@ -84,7 +84,7 @@ body {
 /*.channels,*/
 .channel-name,
 .sidebar-user {
-  color: #2e76ce;
+  color: #ffffff;
 }
 
 .collapsible {
