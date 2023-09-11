@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="styles/messages.css" />
+    <link rel="stylesheet" type="text/css" href="styles/autocomplete.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
@@ -30,7 +31,7 @@
                 <ul id="workspaceList"></ul>
                 <button class="add-new-workspace"><span class="material-symbols-outlined">add</span> Add Workspace</button>
                 <div class="form-popup" id="myForm">
-                  <form action="/action_page.php" class="form-container">
+                  <form autocomplete="off" class="form-container" onsubmit="handleForm(); return false;">
                     <h1>Create Workspace</h1>
 
                     <label for="workspaceName"><b>Workspace Name</b></label>
@@ -39,9 +40,13 @@
                     <label for="workspaceDesc"><b>Description</b></label>
                     <input type="text" id="workspaceDesc" placeholder="Enter a Description" name="workspaceDesc" />
 
-                    <!--                    <label for="search"><b>Search</b></label>-->
-                    <!--                    <input type="text" placeholder="Search..." name="search">-->
-
+                    <div class="autocomplete" style="width: 100%">
+                      Add Users
+                      <input id="myUserInput" type="text" name="myUserInput" placeholder="Search Users" />
+                    </div>
+                    <div id="userSearchResults"></div>
+                    <div id="selectedUsers"></div>
+                    <button type="button" class="btn" id="addUserButton">Add User</button>
                     <button type="submit" class="btn">Create Workspace</button>
                     <button type="button" class="btn cancel" id="closeButton">Close</button>
                   </form>
@@ -55,6 +60,21 @@
               <a href="#" id="channel-link">Channels</a>
               <div id="channel-menus">
                 <ul id="channelList"></ul>
+                <button class="add-new-channel"><span class="material-symbols-outlined">add</span> Add Channel</button>
+                <div class="form-popup" id="myChannelForm">
+                  <form action="" class="form-container" id="channel-form">
+                    <h1>Create Channel</h1>
+
+                    <label for="channelName"><b>Channel Name</b></label>
+                    <input type="text" id="channelName" placeholder="Enter Channel Name" name="channelName" required />
+
+                    <label for="channelDesc"><b>Description</b></label>
+                    <input type="text" id="channelDesc" placeholder="Enter a Description" name="channelDesc" />
+
+                    <button type="submit" class="btn">Create Channel</button>
+                    <button type="button" class="btn cancel" id="channelCloseButton">Close</button>
+                  </form>
+                </div>
               </div>
               <a href="javascript:void(0);" class="icon" onclick="toggleChannelMenus()">
                 <span class="material-symbols-outlined">menu</span>
@@ -64,6 +84,21 @@
               <a href="#" id="direct-messages-link">Direct Messages</a>
               <div id="direct-messages-menus">
                 <ul id="directMessagesList"></ul>
+                <button class="add-new-dm"><span class="material-symbols-outlined">add</span> New Message</button>
+                <div class="form-popup" id="myDMForm">
+                  <form action="/action_page.php" class="form-container">
+                    <h1>New Message</h1>
+
+                    <label for="dMName"><b>Message Name</b></label>
+                    <input type="text" id="dMName" placeholder="Enter Message Name" name="dMName" required />
+
+                    <label for="dMDesc"><b>Description</b></label>
+                    <input type="text" id="dMDesc" placeholder="Enter a Description" name="dMDesc" />
+
+                    <button type="submit" class="btn">Create Message</button>
+                    <button type="button" class="btn cancel" id="dMCloseButton">Close</button>
+                  </form>
+                </div>
               </div>
               <a href="javascript:void(0);" class="icon" onclick="toggleDirectMessagesMenus()">
                 <span class="material-symbols-outlined">menu</span>
@@ -85,6 +120,7 @@
                 </section>
                 <div>
                   <p class="feed-text">${message.content}</p>
+                  <!--                  <button type="button" id="deleteButton">button</button>-->
                 </div>
               </section>
             </article>
@@ -104,6 +140,7 @@
     <script type="module" src="js/channels.js"></script>
     <script type="module" src="js/workspaces.js"></script>
     <script type="module" src="js/displayuserinfo.js"></script>
+    <script type="module" src="js/autocomplete.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
