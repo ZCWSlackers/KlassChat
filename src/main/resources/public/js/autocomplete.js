@@ -1,11 +1,13 @@
-names = ['liz', 'joe', 'min', 'chanelle'];
+import { allUsernames, fetchAllUsers } from './displayuserinfo.js';
+
+fetchAllUsers();
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
-  the text field element and an array of possible autocompleted values:*/
-  let currentFocus;
+the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
   /*execute a function when someone writes in the text field:*/
-  inp.addEventListener('input', function () {
-    let a,
+  inp.addEventListener('input', function (e) {
+    var a,
       b,
       i,
       val = this.value;
@@ -24,20 +26,20 @@ function autocomplete(inp, arr) {
     /*for each item in the array...*/
     for (i = 0; i < arr.length; i++) {
       /*check if the item starts with the same letters as the text field value:*/
-      if (arr[i].substr(0, val.length).toUpperCase() === val.toUpperCase()) {
+      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
         /*create a DIV element for each matching element:*/
         b = document.createElement('DIV');
         /*make the matching letters bold:*/
         b.innerHTML = '<strong>' + arr[i].substr(0, val.length) + '</strong>';
         b.innerHTML += arr[i].substr(val.length);
-        /*insert an input field that will hold the current array item's value:*/
+        /*insert a input field that will hold the current array item's value:*/
         b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
         /*execute a function when someone clicks on the item value (DIV element):*/
-        b.addEventListener('click', function () {
+        b.addEventListener('click', function (e) {
           /*insert the value for the autocomplete text field:*/
           inp.value = this.getElementsByTagName('input')[0].value;
           /*close the list of autocompleted values,
-          (or any other open lists of autocompleted values:*/
+      (or any other open lists of autocompleted values:*/
           closeAllLists();
         });
         a.appendChild(b);
@@ -46,22 +48,22 @@ function autocomplete(inp, arr) {
   });
   /*execute a function presses a key on the keyboard:*/
   inp.addEventListener('keydown', function (e) {
-    let x = document.getElementById(this.id + 'autocomplete-list');
+    var x = document.getElementById(this.id + 'autocomplete-list');
     if (x) x = x.getElementsByTagName('div');
-    if (e.keyCode === 40) {
+    if (e.keyCode == 40) {
       /*If the arrow DOWN key is pressed,
-      increase the currentFocus variable:*/
+  increase the currentFocus variable:*/
       currentFocus++;
-      /*and  make the current item more visible:*/
+      /*and and make the current item more visible:*/
       addActive(x);
-    } else if (e.keyCode === 38) {
+    } else if (e.keyCode == 38) {
       //up
       /*If the arrow UP key is pressed,
-      decrease the currentFocus variable:*/
+  decrease the currentFocus variable:*/
       currentFocus--;
-      /*and  make the current item more visible:*/
+      /*and and make the current item more visible:*/
       addActive(x);
-    } else if (e.keyCode === 13) {
+    } else if (e.keyCode == 13) {
       /*If the ENTER key is pressed, prevent the form from being submitted,*/
       e.preventDefault();
       if (currentFocus > -1) {
@@ -82,16 +84,16 @@ function autocomplete(inp, arr) {
   }
   function removeActive(x) {
     /*a function to remove the "active" class from all autocomplete items:*/
-    for (let i = 0; i < x.length; i++) {
+    for (var i = 0; i < x.length; i++) {
       x[i].classList.remove('autocomplete-active');
     }
   }
-  function closeAllLists(element) {
+  function closeAllLists(elmnt) {
     /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
-    let x = document.getElementsByClassName('autocomplete-items');
-    for (let i = 0; i < x.length; i++) {
-      if (element !== x[i] && element !== inp) {
+except the one passed as an argument:*/
+    var x = document.getElementsByClassName('autocomplete-items');
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
         x[i].parentNode.removeChild(x[i]);
       }
     }
@@ -102,4 +104,5 @@ function autocomplete(inp, arr) {
   });
 }
 
-autocomplete(document.getElementById('userSearchInput'), names);
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById('myUserInput'), allUsernames);

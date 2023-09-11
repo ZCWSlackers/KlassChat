@@ -25,7 +25,7 @@ input[type='submit'] {
 }
 .autocomplete-items {
   position: absolute;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #080828;
   border-bottom: none;
   border-top: none;
   z-index: 99;
@@ -37,12 +37,12 @@ input[type='submit'] {
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #164948;
   border-bottom: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
   /*when hovering an item:*/
-  background-color: #e9e9e9;
+  background-color: rgba(35, 117, 115, 0.85);
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/

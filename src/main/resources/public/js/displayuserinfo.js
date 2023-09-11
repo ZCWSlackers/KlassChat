@@ -50,9 +50,8 @@ async function displayUserInfo() {
   }
 }
 
+const allUsernames = [];
 async function fetchAllUsers() {
-  const allUsers = []; // array to store users
-
   try {
     const response = await fetch('/api/users');
     if (!response.ok) {
@@ -60,10 +59,11 @@ async function fetchAllUsers() {
     }
     const users = await response.json();
 
-    // Add the fetched users to the allUsers array
-    allUsers.push(...users);
+    // Extract the login values from the fetched users and add them to the usernames array
+    const loginValues = users.map(user => user.login);
+    allUsernames.push(...loginValues);
 
-    return allUsers; // Return the array of users
+    return allUsernames; // Return the array of usernames
   } catch (error) {
     console.error('Error fetching all users:', error);
     throw error;
@@ -74,4 +74,4 @@ displayUserInfo();
 
 const userID = userId();
 console.log(userID);
-export { userID, fetchAllUsers };
+export { userID, allUsernames, fetchAllUsers };
