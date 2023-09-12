@@ -1,15 +1,16 @@
 import './home.scss';
-
+// import { API_URL } from '../../resources/public/js/constants.js';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
-
 import { useAppSelector } from 'app/config/store';
 
 export const Home = () => {
+  let API_URL = `https://klasschat.zipcode.rocks`;
   const account = useAppSelector(state => state.authentication.account);
-  const mainpageURL = 'https://klasschat.zipcode.rocks/mainpage.html?userid=' + account.id;
+  const mainpageURL = `${API_URL}/mainpage.html?userid=` + account.id;
+  console.log(mainpageURL);
 
   return (
     <Row>
