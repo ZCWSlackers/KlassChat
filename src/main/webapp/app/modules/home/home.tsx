@@ -9,7 +9,7 @@ import { useAppSelector } from 'app/config/store';
 
 export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
-  const mainpageURL = 'http://localhost:8080/mainpage.html?userid=' + account.id;
+  const mainpageURL = 'https://klasschat.zipcode.rocks/mainpage.html?userid=' + account.id;
 
   return (
     <Row>
