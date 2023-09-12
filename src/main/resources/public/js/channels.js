@@ -127,7 +127,15 @@ function clearChannelList() {
   channelList.innerHTML = '';
 }
 
-export { channelId };
+function clearSelectedChannel() {
+  const channelNameElement = document.querySelector('.channel-name');
+  const channelListElement = document.getElementById('channel-link');
+  channelNameElement.textContent = '';
+  channelListElement.textContent = 'Channel';
+  channelId = null;
+}
+
+export { channelId, clearSelectedChannel };
 
 //I don't think we need anymore.  Moving to the bottom and leaving it for now
 // function showChannelNames(data) {
