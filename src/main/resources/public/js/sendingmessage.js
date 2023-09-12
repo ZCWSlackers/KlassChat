@@ -24,10 +24,10 @@ import { fetchMessages } from './fetchmessages.js';
 // This is the auto refresh section, uncomment to activate.
 // Literally just does the fetch every 2 seconds
 
-//function fetchMessagesPeriodically() {
-//  fetchMessages(channelId);
-//}
-//setInterval(fetchMessagesPeriodically, 2000);
+function fetchMessagesPeriodically() {
+  fetchMessages(channelId);
+}
+setInterval(fetchMessagesPeriodically, 2000);
 
 //////////////////////////////////////////////////////////////////////////////////
 
