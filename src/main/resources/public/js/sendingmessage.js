@@ -20,20 +20,22 @@ import { fetchMessages } from './fetchmessages.js';
 //  }
 //}
 
+//////////////////////////////////////////////////////////////////////////////////
+// This is the auto refresh section, uncomment to activate.
+// Literally just does the fetch every 2 seconds
+
 //function fetchMessagesPeriodically() {
 //  fetchMessages(channelId);
 //}
+//setInterval(fetchMessagesPeriodically, 2000);
 
-// Literally just does the fetch every 1.5 seconds
-//setInterval(fetchMessagesPeriodically, 1500);
+//////////////////////////////////////////////////////////////////////////////////
 
 function userId() {
   try {
     var url_string = window.location.href.toLowerCase();
     var url = new URL(url_string);
     var userid = url.searchParams.get('userid');
-    // var geo = url.searchParams.get("geo");
-    // var size = url.searchParams.get("size");
     console.log(userid);
     return userid;
   } catch (err) {
