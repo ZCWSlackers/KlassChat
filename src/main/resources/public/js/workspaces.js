@@ -1,6 +1,7 @@
 import { API_URL } from './constants.js';
 import { fetchChannelData } from './channels.js';
 import { userID } from './displayuserinfo.js';
+import { clearSelectedUsers } from './autocomplete.js';
 
 const selectedUsers = [{ id: userID }];
 
@@ -162,6 +163,7 @@ closeButton.addEventListener('click', closeForm);
 
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
+  clearSelectedUsers();
   return Promise.resolve();
 }
 
