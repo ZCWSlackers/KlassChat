@@ -20,12 +20,12 @@ import { fetchMessages } from './fetchmessages.js';
 //  }
 //}
 
-//function fetchMessagesPeriodically() {
-//  fetchMessages(channelId);
-//}
+function fetchMessagesPeriodically() {
+  fetchMessages(channelId);
+}
 
-// Literally just does the fetch every 1.5 seconds
-//setInterval(fetchMessagesPeriodically, 1500);
+// Literally just does the fetch every 2 seconds
+setInterval(fetchMessagesPeriodically, 2000);
 
 function userId() {
   try {
