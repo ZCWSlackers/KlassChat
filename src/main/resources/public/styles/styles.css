@@ -177,16 +177,20 @@ body {
 }
 
 /* Logo, navigation menu styling */
-.workspace-channel-button,
+
 .workspace-list,
 .channel-list,
 .direct-messages-list,
 .add-new-workspace,
 .add-new-channel,
-.add-new-dm {
+.add-new-dm,
+.edit-button {
   overflow: hidden;
   background-color: #111;
   position: relative;
+}
+.workspace-channel-button {
+  background-color: #2d2c2c;
 }
 
 /* Styling navigation menu */
@@ -200,7 +204,8 @@ body {
 .workspace-channel-button,
 .workspace-list a,
 .channel-list a,
-.direct-messages-list a {
+.direct-messages-list a,
+.edit-button {
   text-decoration: none;
   color: white;
   padding: 14px 16px;
@@ -235,7 +240,8 @@ body {
 
 #workspaceList,
 #channelList,
-.workspace-channel-button {
+.workspace-channel-button,
+.edit-button {
   list-style: none;
   padding: 0;
 }
@@ -243,7 +249,7 @@ body {
 .add-new-workspace,
 .add-new-channel,
 .add-new-dm,
-.workspace-channel-button {
+.workspace-channel-button .edit-button {
   list-style: none;
   display: block;
   width: 100%; /* Make buttons fill the width */
@@ -256,7 +262,8 @@ body {
 .menu-list li button,
 .add-new-workspace,
 .add-new-channel,
-.add-new-dm {
+.add-new-dm,
+.edit-button {
   list-style: none;
   width: 100%;
   text-decoration: none;

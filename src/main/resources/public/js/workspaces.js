@@ -84,13 +84,34 @@ function createWorkspaceButtons(data) {
 
   data.forEach(workspace => {
     const listItem = document.createElement('li');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.textContent = workspace.name;
-    button.className = 'workspace-channel-button';
-    button.addEventListener('click', () => handleWorkspaceButtonClick(workspace.id));
+    const workspaceDiv = document.createElement('div');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.display = 'flex';
+    const workspaceButton = document.createElement('button');
+    workspaceButton.type = 'button';
+    workspaceButton.textContent = workspace.name;
+    workspaceButton.className = 'workspace-channel-button';
+    workspaceButton.style.flex = '90%';
+    workspaceButton.addEventListener('click', () => handleWorkspaceButtonClick(workspace.id));
 
-    listItem.appendChild(button);
+    const editSymbol = document.createElement('span');
+    editSymbol.className = 'material-symbols-outlined';
+    editSymbol.textContent = 'edit';
+    editSymbol.style.display = 'flex';
+    editSymbol.style.alignItems = 'center';
+    editSymbol.style.justifyContent = 'center';
+    const editButton = document.createElement('button');
+    editButton.type = 'button';
+    editButton.className = 'edit-button';
+    editButton.appendChild(editSymbol);
+    editButton.style.flex = '10%';
+    editButton.addEventListener('click', () => handleEditButtonClick(workspace.id));
+
+    buttonContainer.appendChild(workspaceButton);
+    buttonContainer.appendChild(editButton);
+    workspaceDiv.appendChild(buttonContainer);
+
+    listItem.appendChild(workspaceDiv);
     workspaceButtons.appendChild(listItem);
   });
 }
