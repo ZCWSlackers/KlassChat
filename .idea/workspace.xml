@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7135bf13-288b-4d7e-8236-b1022cca0260" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/imageuser1201.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/imageuser1302.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/service/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/service/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/web/rest/ClientForwardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rocks/zipcode/klasschat/web/rest/ClientForwardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/fetchmessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/fetchmessages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/sendingmessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/sendingmessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/mainpaige.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +63,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/public/assets" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="KlassChatApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -78,5 +92,31 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
