@@ -130,22 +130,22 @@ async function fetchMessages(channelId) {
   }
 }
 
-document.addEventListener('click', function (event) {
-  if (event.target.classList.contains('workspace-channel-button')) {
-    // Perform a different action when a workspace button is clicked
-    const workspaceId = event.target.getAttribute('data-workspace-id');
+//document.addEventListener('click', function (event) {
+//  if (event.target.classList.contains('workspace-channel-button')) {
+//    // Perform a different action when a workspace button is clicked
+//    const workspaceId = event.target.getAttribute('data-workspace-id');
+//
+//    const messageBox = document.querySelector('.messageBox');
+//    removeAllChildNodes(messageBox);
+//    //    messageBox.innerHTML = '';
+//    console.log(`Workspace clicked, clearing messageBox`);
+//  }
+//});
 
-    const messageBox = document.querySelector('.messageBox');
-    removeAllChildNodes(messageBox);
-    //    messageBox.innerHTML = '';
-    console.log(`Workspace clicked, clearing messageBox`);
-  }
-});
-
-function removeAllChildNodes(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-}
+//function removeAllChildNodes(parent) {
+//  while (parent.firstChild) {
+//    parent.removeChild(parent.firstChild);
+//  }
+//}
 
 export { fetchMessages };

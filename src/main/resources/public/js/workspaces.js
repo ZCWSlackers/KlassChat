@@ -1,6 +1,9 @@
 import { API_URL } from './constants.js';
-import { fetchChannelData } from './channels.js';
+import { clearSelectedChannel, fetchChannelData } from './channels.js';
 import { userID } from './displayuserinfo.js';
+import { clearSelectedUsers } from './autocomplete.js';
+
+const selectedUsers = [{ id: userID }];
 
 // Each workspace has a list of users.
 // If your id is not present in that list, you should not be able to see that workspace.
@@ -101,11 +104,7 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   if (selectedWorkspace) {
     workspaceNameElement.textContent = 'Workspace: ' + selectedWorkspace.name;
   }
-  let messageBox = document.querySelector('.messageBox');
-  // Clear any existing messages in the messageBox
-  messageBox.innerHTML = '';
-  console.log(messageBox);
-  console.log('is this getting called');
+  clearSelectedChannel();
   fetchChannelData(workspaceId);
 }
 
@@ -164,6 +163,7 @@ closeButton.addEventListener('click', closeForm);
 
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
+  clearSelectedUsers();
   return Promise.resolve();
 }
 
