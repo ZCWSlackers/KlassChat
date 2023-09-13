@@ -8,7 +8,7 @@ import { useAppSelector } from 'app/config/store';
 
 export const Home = () => {
   let API_URL = `https://klasschat.zipcode.rocks`;
-  //   let API_URL = `http://localhost:8080`;
+  //     let API_URL = `http://localhost:8080`;
 
   const account = useAppSelector(state => state.authentication.account);
   const mainpageURL = `${API_URL}/mainpage.html?userid=` + account.id;
