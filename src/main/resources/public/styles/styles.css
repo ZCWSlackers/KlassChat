@@ -31,7 +31,7 @@
   padding: 30px;
   height: 100vh;
   box-sizing: border-box;
-  background-color: #00cccc;
+  background-color: #096e6e;
 }
 .messageBox {
   flex: 9;
@@ -59,7 +59,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #938f8f;
+  background-color: #3b3a3a;
   //background-color: #2e9390;
   margin: 5px;
   border-radius: 5px;
@@ -96,6 +96,7 @@ body {
 /*.channels,*/
 .channel-name,
 .sidebar-user {
+  font-size: 28px;
   color: #ffffff;
 }
 .sidebar-user {
@@ -121,7 +122,7 @@ body {
   border: none;
   text-align: left;
   outline: none;
-  font-size: 15px;
+  font-size: 28px;
   flex-grow: 1;
 }
 .active,
@@ -145,7 +146,7 @@ body {
   padding: 10px; /* Add some padding to the dropdown */
   background-color: #f5f5f5; /* Set the background color */
   border: 1px solid #ccc; /* Add a border */
-  font-family: Arial, sans-serif; /* Specify the font family */
+  font-family: 'Helvetica', serif; /* Specify the font family */
   /* Add more styles as needed */
 }
 
@@ -163,7 +164,7 @@ body {
   text-decoration: none;
   color: white;
   padding: 14px 16px;
-  font-size: 16px;
+  font-size: 28px;
   display: inline-block;
   width: 80%; /* 90% width for the <a> */
 }
@@ -171,22 +172,26 @@ body {
 .direct-messages-list .material-symbols-outlined,
 .channel-list .material-symbols-outlined,
 .workspace-list .material-symbols-outlined {
-  font-size: 16px;
+  font-size: 28px;
   display: inline-block;
   width: 20%; /* 10% width for the <span> */
 }
 
 /* Logo, navigation menu styling */
-.workspace-channel-button,
+
 .workspace-list,
 .channel-list,
 .direct-messages-list,
 .add-new-workspace,
 .add-new-channel,
-.add-new-dm {
+.add-new-dm,
+.edit-button {
   overflow: hidden;
   background-color: #111;
   position: relative;
+}
+.workspace-channel-button {
+  background-color: #2d2c2c;
 }
 
 /* Styling navigation menu */
@@ -200,11 +205,12 @@ body {
 .workspace-channel-button,
 .workspace-list a,
 .channel-list a,
-.direct-messages-list a {
+.direct-messages-list a,
+.edit-button {
   text-decoration: none;
   color: white;
   padding: 14px 16px;
-  font-size: 16px;
+  font-size: 28px;
   display: block;
 }
 
@@ -235,7 +241,8 @@ body {
 
 #workspaceList,
 #channelList,
-.workspace-channel-button {
+.workspace-channel-button,
+.edit-button {
   list-style: none;
   padding: 0;
 }
@@ -243,29 +250,30 @@ body {
 .add-new-workspace,
 .add-new-channel,
 .add-new-dm,
-.workspace-channel-button {
+.workspace-channel-button .edit-button {
   list-style: none;
   display: block;
   width: 100%; /* Make buttons fill the width */
   padding: 10px; /* Adjust padding for button size */
-  font-size: 16px; /* Adjust font size for button text */
-  font-family: Chalkboard, serif;
+  font-size: 28px; /* Adjust font size for button text */
+  font-family: 'Helvetica', serif;
 }
 
 .workspace-channel-button,
 .menu-list li button,
 .add-new-workspace,
 .add-new-channel,
-.add-new-dm {
+.add-new-dm,
+.edit-button {
   list-style: none;
   width: 100%;
   text-decoration: none;
   color: white;
   padding: 14px 16px;
-  font-size: 16px;
+  font-size: 28px;
   display: flex;
   align-items: center;
-  font-family: Chalkboard, serif;
+  font-family: 'Helvetica', serif;
 }
 
 /*Pop-up Forms*/
@@ -342,4 +350,11 @@ body {
 .form-container .btn:hover,
 .open-button:hover {
   opacity: 1;
+}
+
+#message {
+  font-size: 24px;
+}
+#sendButton {
+  font-size: 28px;
 }
