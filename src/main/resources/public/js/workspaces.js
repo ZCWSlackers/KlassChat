@@ -130,22 +130,16 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
 
 function handleEditButtonClick(id, name, desc) {
   console.log(id, name, desc);
-  const editForm = document.getElementById('editForm');
+  const editForm = document.getElementById('editWSForm');
   editForm.style.display = 'block';
 
   document.getElementById('editWorkspaceName').value = name;
   document.getElementById('editWorkspaceDesc').value = desc;
 }
-window.addEventListener('load', () => {
-  console.log('Workspace Event Listener Loaded)');
-  fetchWorkspaceData().then(() => {
-    console.log('fetchWorkspaceData has completed.');
-  });
-});
 
 function addNewWorkspace() {
   event.preventDefault();
-  document.getElementById('myForm').style.display = 'block';
+  document.getElementById('createWSForm').style.display = 'block';
 }
 
 function handleSubmit(event) {
@@ -170,7 +164,7 @@ function handleSubmit(event) {
         // Workspace creation was successful
         console.log('Workspace created successfully.');
         // Optionally, you can close the form here
-        closeForm()
+        closeForm('createWSForm')
           .then(() => clearWorkspaceList())
           .then(() => fetchWorkspaceData());
       } else {
@@ -187,11 +181,19 @@ const form = document.querySelector('.form-container');
 form.addEventListener('submit', handleSubmit);
 const addButton = document.querySelector('.add-new-workspace');
 addButton.addEventListener('click', addNewWorkspace);
-const closeButton = document.getElementById('closeButton');
-closeButton.addEventListener('click', closeForm);
+const closeButton = document.getElementById('closeWSCreateButton');
+closeButton.addEventListener('click', () => closeForm('createWSForm'));
+const closeEditButton = document.getElementById('editCloseButton');
+closeEditButton.addEventListener('click', () => closeForm('editWSForm'));
+window.addEventListener('load', () => {
+  console.log('Workspace Event Listener Loaded)');
+  fetchWorkspaceData().then(() => {
+    console.log('fetchWorkspaceData has completed.');
+  });
+});
 
-function closeForm() {
-  document.getElementById('myForm').style.display = 'none';
+function closeForm(id) {
+  document.getElementById(id).style.display = 'none';
   clearSelectedUsers();
   return Promise.resolve();
 }
