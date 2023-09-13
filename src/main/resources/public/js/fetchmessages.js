@@ -16,9 +16,9 @@ import { channelId } from './channels.js';
 
 function userId() {
   try {
-    var url_string = window.location.href.toLowerCase();
-    var url = new URL(url_string);
-    var userid = url.searchParams.get('userid');
+    let url_string = window.location.href.toLowerCase();
+    let url = new URL(url_string);
+    let userid = url.searchParams.get('userid');
     // var geo = url.searchParams.get("geo");
     // var size = url.searchParams.get("size");
     console.log(userid);

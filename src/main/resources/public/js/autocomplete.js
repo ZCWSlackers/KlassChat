@@ -2,6 +2,7 @@ import { allUsernames, fetchAllUsers } from './displayuserinfo.js';
 
 fetchAllUsers();
 
+//This is a W3Schools tutorial.  I didn't come up with this
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
 the text field element and an array of possible autocompleted values:*/

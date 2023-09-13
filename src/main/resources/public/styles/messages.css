@@ -47,17 +47,18 @@
 /* Style for the user info section */
 .feed-user-info h4 {
   margin: 0;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .time-stamp {
-  font-size: 10px;
+  font-size: 18px;
   color: #f1e6a3;
   padding-left: 10px;
 }
 
 /* Style for the feed text */
 .feed-text {
-  font-size: 14px;
+  font-size: 24px;
   margin: 5px 0;
+  font-family: 'Helvetica', serif;
 }

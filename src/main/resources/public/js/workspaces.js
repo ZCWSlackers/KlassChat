@@ -78,6 +78,7 @@ async function fetchWorkspaceData() {
     console.error('Failed to load workspaces', error);
   }
 }
+
 function createWorkspaceButtons(data) {
   const workspaceButtons = document.getElementById('workspaceList');
 
@@ -129,12 +130,12 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
 }
 
 function handleEditButtonClick(id, name, desc) {
-  console.log(id, name, desc);
   const editForm = document.getElementById('editWSForm');
   editForm.style.display = 'block';
-
+  document.getElementById('editWorkspaceId').value = id;
   document.getElementById('editWorkspaceName').value = name;
   document.getElementById('editWorkspaceDesc').value = desc;
+  console.log(id, name, desc);
 }
 
 function addNewWorkspace() {
@@ -142,7 +143,7 @@ function addNewWorkspace() {
   document.getElementById('createWSForm').style.display = 'block';
 }
 
-function handleSubmit(event) {
+function handleCreateSubmit(event) {
   event.preventDefault();
   const workspaceName = document.querySelector('input[name="workspaceName"]').value;
   const workspaceDesc = document.querySelector('input[name="workspaceDesc"]').value;
@@ -177,20 +178,62 @@ function handleSubmit(event) {
     });
 }
 
-const form = document.querySelector('.form-container');
-form.addEventListener('submit', handleSubmit);
+function handleUpdateForm() {
+  const workspaceID = document.getElementById('editWorkspaceId').value;
+  const updatedWSName = document.getElementById('editWorkspaceName').value;
+  const updatedWSDesc = document.getElementById('editWorkspaceDesc').value;
+
+  const updatedWorkspaceData = {
+    name: updatedWSName,
+    description: updatedWSDesc,
+  };
+
+  fetch(`${API_URL}/api/workspaces/${workspaceID}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedWorkspaceData),
+  })
+    .then(response => {
+      if (response.ok) {
+        // Workspace update was successful
+        console.log('Workspace updated successfully.');
+        // Optionally, you can close the form here or perform any other actions.
+        closeForm('editWSForm'); // Implement this function to close the edit form.
+      } else {
+        // Handle errors if the request fails
+        console.error('Error updating workspace:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Network error:', error);
+    });
+}
+
+const form = document.querySelector('#createForm');
+form.addEventListener('submit', handleCreateSubmit);
 const addButton = document.querySelector('.add-new-workspace');
 addButton.addEventListener('click', addNewWorkspace);
 const closeButton = document.getElementById('closeWSCreateButton');
 closeButton.addEventListener('click', () => closeForm('createWSForm'));
 const closeEditButton = document.getElementById('editCloseButton');
 closeEditButton.addEventListener('click', () => closeForm('editWSForm'));
+const updateSubmitButton = document.querySelector('#updateSubmit');
+updateSubmitButton.addEventListener('click', handleUpdateForm);
+
 window.addEventListener('load', () => {
   console.log('Workspace Event Listener Loaded)');
   fetchWorkspaceData().then(() => {
     console.log('fetchWorkspaceData has completed.');
   });
 });
+
+// const updateForm = document.getElementById('updateForm');
+// updateForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   handleUpdateForm();
+// });
 
 function closeForm(id) {
   document.getElementById(id).style.display = 'none';

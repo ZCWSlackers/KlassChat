@@ -30,7 +30,7 @@
                 <ul id="workspaceList"></ul>
                 <button class="add-new-workspace"><span class="material-symbols-outlined">add</span> Add Workspace</button>
                 <div class="form-popup" id="createWSForm">
-                  <form autocomplete="off" class="form-container" onsubmit="handleForm(); return false;">
+                  <form autocomplete="off" class="form-container" id="createForm">
                     <h1>Create Workspace</h1>
 
                     <label for="workspaceName"><b>Workspace Name</b></label>
@@ -45,30 +45,23 @@
                     </div>
                     <div id="selectedUsers"></div>
                     <button type="button" class="btn" id="addUserButton">Add User</button>
-                    <button type="submit" class="btn">Create Workspace</button>
+                    <button type="submit" class="btn" id="createSubmit">Create Workspace</button>
                     <button type="button" class="btn cancel" id="closeWSCreateButton">Close</button>
                   </form>
                 </div>
                 <div class="form-popup" id="editWSForm">
-                  <form autocomplete="off" class="form-container">
+                  <form autocomplete="off" class="form-container" id="updateForm">
                     <h1>Edit Workspace</h1>
 
-                    <!--                    &lt;!&ndash; Hidden input to store the workspace ID &ndash;&gt;-->
-                    <!--                    <input type="hidden" id="editWorkspaceId" name="editWorkspaceId" />-->
+                    <!-- Hidden input to store the workspace ID -->
+                    <input type="hidden" id="editWorkspaceId" name="editWorkspaceId" />
 
                     <label for="editWorkspaceName"><b>Workspace Name</b></label>
                     <input type="text" id="editWorkspaceName" placeholder="Enter Workspace Name" name="editWorkspaceName" required />
 
                     <label for="editWorkspaceDesc"><b>Description</b></label>
                     <input type="text" id="editWorkspaceDesc" placeholder="Enter a Description" name="editWorkspaceDesc" />
-
-                    <!--                    <div class="autocomplete" style="width: 100%">-->
-                    <!--                      Add Users-->
-                    <!--                      <input id="editUserInput" type="text" name="editUserInput" placeholder="Search Users" />-->
-                    <!--                    </div>-->
-                    <!--                    <div id="editSelectedUsers"></div>-->
-                    <!--                    <button type="button" class="btn" id="editAddUserButton">Add User</button>-->
-                    <button type="submit" class="btn">Save Changes</button>
+                    <button type="submit" class="btn" id="updateSubmit">Save Changes</button>
                     <button type="button" class="btn cancel" id="editCloseButton">Cancel</button>
                   </form>
                 </div>
@@ -92,7 +85,7 @@
                     <label for="channelDesc"><b>Description</b></label>
                     <input type="text" id="channelDesc" placeholder="Enter a Description" name="channelDesc" />
 
-                    <button type="submit" class="btn">Create Channel</button>
+                    <button type="submit" class="btn" id="createChannelButton">Create Channel</button>
                     <button type="button" class="btn cancel" id="channelCloseButton">Close</button>
                   </form>
                 </div>
