@@ -125,6 +125,7 @@ async function fetchMessages(channelId) {
       // Append the article to the messageBox
       messageBox.appendChild(article);
     }
+    messageBox.scrollTop = messageBox.scrollHeight;
   } catch (error) {
     console.error('Error fetching messages: ', error);
   }
