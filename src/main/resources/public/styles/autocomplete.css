@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  font: 16px Arial;
+  font: 24px Arial;
 }
 .autocomplete {
   /*the container must be positioned relative:*/
@@ -13,7 +13,7 @@ input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 10px;
-  font-size: 16px;
+  font-size: 24px;
 }
 input[type='text'] {
   background-color: #f1f1f1;
@@ -48,4 +48,11 @@ input[type='submit'] {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
   color: #ffffff;
+}
+#addUserButton,
+#createSubmit,
+#closeWSCreateButton,
+#createChannelButton,
+#channelCloseButton {
+  font-size: 24px;
 }
