@@ -49,6 +49,29 @@
                     <button type="button" class="btn cancel" id="closeButton">Close</button>
                   </form>
                 </div>
+                <div class="form-popup" id="editForm">
+                  <form autocomplete="off" class="form-container">
+                    <h1>Edit Workspace</h1>
+
+                    <!--                    &lt;!&ndash; Hidden input to store the workspace ID &ndash;&gt;-->
+                    <!--                    <input type="hidden" id="editWorkspaceId" name="editWorkspaceId" />-->
+
+                    <label for="editWorkspaceName"><b>Workspace Name</b></label>
+                    <input type="text" id="editWorkspaceName" placeholder="Enter Workspace Name" name="editWorkspaceName" required />
+
+                    <label for="editWorkspaceDesc"><b>Description</b></label>
+                    <input type="text" id="editWorkspaceDesc" placeholder="Enter a Description" name="editWorkspaceDesc" />
+
+                    <!--                    <div class="autocomplete" style="width: 100%">-->
+                    <!--                      Add Users-->
+                    <!--                      <input id="editUserInput" type="text" name="editUserInput" placeholder="Search Users" />-->
+                    <!--                    </div>-->
+                    <!--                    <div id="editSelectedUsers"></div>-->
+                    <!--                    <button type="button" class="btn" id="editAddUserButton">Add User</button>-->
+                    <button type="submit" class="btn">Save Changes</button>
+                    <button type="button" class="btn cancel" id="editCloseButton">Cancel</button>
+                  </form>
+                </div>
               </div>
               <a href="javascript:void(0);" class="icon" onclick="toggleWorkspaceMenus()">
                 <span class="material-symbols-outlined">menu</span>

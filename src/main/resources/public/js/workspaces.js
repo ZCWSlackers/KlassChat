@@ -78,7 +78,6 @@ async function fetchWorkspaceData() {
     console.error('Failed to load workspaces', error);
   }
 }
-
 function createWorkspaceButtons(data) {
   const workspaceButtons = document.getElementById('workspaceList');
 
@@ -105,7 +104,7 @@ function createWorkspaceButtons(data) {
     editButton.className = 'edit-button';
     editButton.appendChild(editSymbol);
     editButton.style.flex = '10%';
-    editButton.addEventListener('click', () => handleEditButtonClick(workspace.id));
+    editButton.addEventListener('click', () => handleEditButtonClick(workspace.id, workspace.name, workspace.description));
 
     buttonContainer.appendChild(workspaceButton);
     buttonContainer.appendChild(editButton);
@@ -129,6 +128,14 @@ function handleWorkspaceButtonClick(selectedWorkspaceId) {
   fetchChannelData(workspaceId);
 }
 
+function handleEditButtonClick(id, name, desc) {
+  console.log(id, name, desc);
+  const editForm = document.getElementById('editForm');
+  editForm.style.display = 'block';
+
+  document.getElementById('editWorkspaceName').value = name;
+  document.getElementById('editWorkspaceDesc').value = desc;
+}
 window.addEventListener('load', () => {
   console.log('Workspace Event Listener Loaded)');
   fetchWorkspaceData().then(() => {
@@ -140,6 +147,7 @@ function addNewWorkspace() {
   event.preventDefault();
   document.getElementById('myForm').style.display = 'block';
 }
+
 function handleSubmit(event) {
   event.preventDefault();
   const workspaceName = document.querySelector('input[name="workspaceName"]').value;
