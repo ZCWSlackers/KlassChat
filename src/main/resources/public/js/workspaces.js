@@ -217,10 +217,10 @@ const addButton = document.querySelector('.add-new-workspace');
 addButton.addEventListener('click', addNewWorkspace);
 const closeButton = document.getElementById('closeWSCreateButton');
 closeButton.addEventListener('click', () => closeForm('createWSForm'));
-const closeEditButton = document.getElementById('editCloseButton');
-closeEditButton.addEventListener('click', () => closeForm('editWSForm'));
-const updateSubmitButton = document.querySelector('#updateSubmit');
-updateSubmitButton.addEventListener('click', handleUpdateForm);
+// const closeEditButton = document.getElementById('editCloseButton');
+// closeEditButton.addEventListener('click', () => closeForm('editWSForm'));
+// const updateSubmitButton = document.querySelector('#updateSubmit');
+// updateSubmitButton.addEventListener('click', handleUpdateForm);
 
 window.addEventListener('load', () => {
   console.log('Workspace Event Listener Loaded)');

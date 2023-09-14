@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7135bf13-288b-4d7e-8236-b1022cca0260" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/fetchmessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/fetchmessages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/js/workspaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +77,8 @@
       <updated>1694296159489</updated>
       <workItem from="1694296162549" duration="9576000" />
       <workItem from="1694543257115" duration="22932000" />
+      <workItem from="1694624883349" duration="6100000" />
+      <workItem from="1694639161476" duration="121000" />
     </task>
     <servers />
   </component>
